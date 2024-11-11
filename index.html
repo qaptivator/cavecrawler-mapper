@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cavecrawler Mapper</title>
+  </head>
+  <body>
+    <div class="container roboto-regular">
+      <div class="header">
+        <image src="assets/icon.png" class="icon"></image>
+        <div class="text">
+          <div class="top">Cavecrawler Mapper</div>
+          <div class="bottom">
+            Made by captivator and fizzy<br />
+            for
+            <a
+              href="https://www.roblox.com/games/13822889/Lumber-Tycoon-2"
+              target="_blank"
+              >Lumber Tycoon 2</a
+            >
+            players with love ❤️
+          </div>
+        </div>
+      </div>
+      <div class="content"></div>
+    </div>
+    <script>
+      function getDay() {
+        let period = 8;
+        let unitModifier = 24 * 60 * 60 * 4; // Period of four days
+        let time = Math.floor(Date.now() / 1000);
+
+        let day = Math.floor((time % (period * unitModifier)) / unitModifier); // Value 0 through (1 - period)
+        return day;
+      }
+
+      function compareDays(day) {
+        const container = document.querySelector(".container .content");
+        if (!container) {
+          alert("Unexpected error occured, container not found.");
+          return;
+        }
+
+        const text = document.createElement("div");
+        text.textContent = "Today's path to cavecrawler wood:";
+        text.classList.add("text");
+
+        const image = document.createElement("img");
+        image.classList.add("path-image");
+
+        switch (day) {
+          case 0:
+            image.src = "assets/Path_3.jpg";
+            break;
+          case 1:
+            image.src = "assets/Path_1.jpg";
+            break;
+          case 2:
+            image.src = "assets/Path_2.jpg";
+            break;
+          case 3:
+            image.src = "assets/Path_4.jpg";
+            break;
+          case 4:
+            image.src = "assets/Path_5.jpg";
+            break;
+          case 5:
+            image.src = "assets/Path_BLOCKED.jpg";
+            text.textContent =
+              "The Maze is currently closed. You cannot get to cavecrawler wood because all of the doors are blocked. Check again tomorrow!";
+            break;
+          case 6:
+            image.src = "assets/Path_6.jpg";
+            break;
+          case 7:
+            image.src = "assets/Path_7.jpg";
+            break;
+          default:
+            alert("Unexpected error occured, maze day not found.");
+            return;
+        }
+
+        container.appendChild(text);
+        container.appendChild(image);
+      }
+
+      compareDays(getDay());
+    </script>
+    <style>
+      html,
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        width: 100%;
+        max-width: 500px;
+        padding: 10px;
+      }
+      .header {
+        padding-bottom: 50px;
+        display: flex;
+        font-size: 32px;
+        white-space: nowrap;
+      }
+      .header .text {
+        display: block;
+      }
+      .header .text .top {
+        font-size: 32px;
+        font-weight: 700;
+      }
+      .header .text .bottom {
+        font-size: 16px;
+      }
+      .header .icon {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+      }
+      .content {
+        display: block;
+      }
+      .content .text {
+        font-size: 32px;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+      .content .path-image {
+        width: 100%;
+      }
+      .roboto-regular {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </body>
+</html>
