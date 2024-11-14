@@ -11,42 +11,50 @@
       rel="stylesheet"
     />
     <title>Cavecrawler Mapper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="container roboto-regular">
-      <div class="header">
-        <image src="assets/icon.png" class="icon"></image>
-        <div class="text">
-          <div class="top">Cavecrawler Mapper</div>
-          <div class="bottom">
-            Made by captivator and fizzy<br />
-            for
-            <a
-              href="https://www.roblox.com/games/13822889/Lumber-Tycoon-2"
-              target="_blank"
-              >Lumber Tycoon 2</a
-            >
-            players with love ❤️<br />
-            Hosted on
-            <a
-              href="https://github.com/qaptivator/cavecrawler-mapper"
-              target="_blank"
-              >GitHub</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="note">
-          Every day, the maze changes the path to cavecrawler wood, so with this
-          tool you can find the working map every day. Note: the path to
-          cavecrawler is decided during server creation, so if you are playing
-          on an old server, today's path may not work.
+  <body
+    id="container"
+    class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
+  >
+    <div class="flex w-fit pt-5 pb-10 text-left">
+      <image src="assets/icon.png" class="w-[100px] h-[100px] mr-5"></image>
+      <div class="block">
+        <div class="font-bold text-3xl">Cavecrawler Mapper</div>
+        <div class="text-base">
+          Made by captivator and fizzy<br />
+          for
+          <a
+            href="https://www.roblox.com/games/13822889/Lumber-Tycoon-2"
+            target="_blank"
+            >Lumber Tycoon 2</a
+          >
+          players with love ❤️<br />
+          Hosted on
+          <a
+            href="https://github.com/qaptivator/cavecrawler-mapper"
+            target="_blank"
+            >GitHub</a
+          >
         </div>
       </div>
     </div>
+    <div class="text-xs pb-3">
+      Every 4 days, the maze changes the path to cavecrawler wood, so with this
+      tool you can find the working map every 4 days.<br />
+      Note: the path to cavecrawler is decided during server creation, so if you
+      are playing on an old server, current path may not work.
+    </div>
+    <!--<div id="content" class="block text-center">
+      <div class="text-xs pb-3">
+        Every 4 days, the maze changes the path to cavecrawler wood, so with
+        this tool you can find the working map every 4 days.<br />
+        Note: the path to cavecrawler is decided during server creation, so if
+        you are playing on an old server, current path may not work.
+      </div>
+    </div>-->
     <script>
-      function getDay() {
+      function getCycle() {
         let period = 8;
         let unitModifier = 24 * 60 * 60 * 4; // Period of four days
         let time = Math.floor(Date.now() / 1000);
@@ -55,49 +63,49 @@
         return day;
       }
 
-      function compareDays(day) {
-        const container = document.querySelector(".container .content");
+      function compareCycles(day) {
+        const container = document.querySelector("#container");
         if (!container) {
           alert("Unexpected error occured, container not found.");
           return;
         }
 
         const text = document.createElement("div");
-        text.textContent = "Today's path to cavecrawler wood:";
-        text.classList.add("text");
+        text.textContent = "Current path to cavecrawler wood:";
+        text.classList.add("pb-3", "text-3xl");
 
         const image = document.createElement("img");
         image.classList.add("path-image");
 
         switch (day) {
           case 0:
-            image.src = "assets/Path_3.jpg";
+            image.src = "assets/Path0.png";
             break;
           case 1:
-            image.src = "assets/Path_1.jpg";
+            image.src = "assets/Path1.png";
             break;
           case 2:
-            image.src = "assets/Path_2.jpg";
+            image.src = "assets/Path2.png";
             break;
           case 3:
-            image.src = "assets/Path_4.jpg";
+            image.src = "assets/Path3.png";
             break;
           case 4:
-            image.src = "assets/Path_5.jpg";
+            image.src = "assets/Path4.png";
             break;
           case 5:
-            image.src = "assets/Path_BLOCKED.jpg";
+            image.src = "assets/Path5_Blocked.png";
             text.textContent =
-              "The Maze is currently closed. You cannot get to cavecrawler wood because all of the doors are blocked. Check again tomorrow!";
+              "The Maze is currently closed. You cannot get to cavecrawler wood because all of the doors are blocked. Check again later!";
             break;
           case 6:
-            image.src = "assets/Path_6.jpg";
+            image.src = "assets/Path6.png";
             break;
           case 7:
-            image.src = "assets/Path_7.jpg";
+            image.src = "assets/Path7.png";
             break;
           default:
-            alert("Unexpected error occured, maze day not found.");
+            alert("Unexpected error occured, maze cycle not found.");
             return;
         }
 
@@ -105,9 +113,9 @@
         container.appendChild(image);
       }
 
-      compareDays(getDay());
+      compareCycles(getCycle());
     </script>
-    <style>
+    <!--<style>
       html,
       body {
         display: flex;
@@ -156,6 +164,8 @@
       .content .path-image {
         width: 100%;
       }
+    </style>-->
+    <style>
       .roboto-regular {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
@@ -163,6 +173,7 @@
       }
       a {
         color: white;
+        text-decoration: underline;
       }
     </style>
   </body>
