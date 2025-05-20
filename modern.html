@@ -132,7 +132,7 @@
 				type="button"
 				class="order-1 p-2 bg-neutral-300 rounded-lg font-semibold"
 			>
-				Generate
+				Express [E]
 			</button>
 			<button
 				id="share-btn"
@@ -406,6 +406,11 @@
 
 			generateBtn.addEventListener('click', () => {
 				fullGenerate()
+			})
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'E' || event.key === 'e') {
+					fullGenerate()
+				}
 			})
 
 			enterSeedBtn.addEventListener('click', () => {
