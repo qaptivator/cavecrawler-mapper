@@ -113,15 +113,25 @@
 			this tool, you can generate and share your paintings with just a link.
 			Thanks to people of LT2 Wiki Discord for suggesting this idea!
 		</section>
+		<h2
+			id="seed-text"
+			class="text-2xl mb-2 mt-4"
+		></h2>
 		<canvas id="main-canvas"></canvas>
-
 		<div class="flex text-black mt-4 text-xl space-x-2">
 			<button
 				id="generate-btn"
 				type="button"
-				class="order-1 p-2 bg-white rounded-lg"
+				class="order-1 p-2 bg-white rounded-lg font-semibold"
 			>
 				Generate
+			</button>
+			<button
+				id="enter-seed-btn"
+				type="button"
+				class="order-1 p-2 bg-white rounded-lg"
+			>
+				Enter seed
 			</button>
 		</div>
 		<!--<div id="content" class="block text-center">
@@ -143,11 +153,20 @@
 			const TRUE_BOUNDS_MIN = BORDER_WIDTH
 			const TRUE_BOUNDS_MAX = IMAGE_SIZE - BORDER_WIDTH - BOUNDS_MARGIN
 
+			function randomInt(min, max) {
+				min = Math.ceil(min)
+				max = Math.floor(max)
+				if (min === max) return min
+				return Math.floor(Math.random() * (max - min + 1)) + min
+			}
+
 			const canvas = document.getElementById('main-canvas')
 			canvas.width = IMAGE_SIZE
 			canvas.height = IMAGE_SIZE
 			const ctx = canvas.getContext('2d')
 			const generateBtn = document.getElementById('generate-btn')
+			const enterSeedBtn = document.getElementById('enter-seed-btn')
+			const seedText = document.getElementById('seed-text')
 
 			const jsonReq = new XMLHttpRequest()
 			jsonReq.open('GET', 'assets/BRICKCOLORS.json', false)
@@ -157,7 +176,10 @@
 			}
 			const brickcolors = JSON.parse(jsonReq.responseText || '{}')
 			function brickcolorToHex(bc) {
-				if (!bc || !bc?.rgb) return '#000000'
+				if (!bc || !bc?.rgb) {
+					//return '#000000'
+					return brickcolorToHex(brickcolors[randomInt(0, brickcolors.length)])
+				}
 				return `#${(
 					(1 << 24) +
 					(bc.rgb[0] << 16) +
@@ -166,13 +188,6 @@
 				)
 					.toString(16)
 					.slice(1)}`
-			}
-
-			function randomInt(min, max) {
-				min = Math.ceil(min)
-				max = Math.floor(max)
-				if (min === max) return min
-				return Math.floor(Math.random() * (max - min + 1)) + min
 			}
 
 			/**
@@ -268,6 +283,11 @@
 				return { count, rectangles }
 			}
 
+			function updateSeedText(b) {
+				//seedText.innerText = 'Seed: ' + b
+				seedText.innerText = b
+			}
+
 			function generatePainting() {
 				const count = randomInt(1, 3)
 				const rectangles = []
@@ -346,10 +366,25 @@
 				drawPainting(newPData)
 				const newBase64Param = pdataToBase64(newPData)
 				history.replaceState(null, '', '#' + newBase64Param)
+				updateSeedText(newBase64Param)
 			}
 
 			generateBtn.addEventListener('click', () => {
 				fullGenerate()
+			})
+
+			enterSeedBtn.addEventListener('click', () => {
+				const seed = prompt('Enter seed (Base64 text, or literally anything):')
+				if (seed) {
+					const paramPData = pdataFromBase64(seed)
+					if (paramPData) {
+						updateSeedText(seed)
+						drawPainting(paramPData)
+						history.replaceState(null, '', '#' + seed)
+					} else {
+						alert('Invalid seed format')
+					}
+				}
 			})
 
 			// document.location.search doesnt work here because live (five) server i use doesnt support url params, unlike nuxt
@@ -363,6 +398,7 @@
 			const pseed = document.location.toString().split('#')[1]
 			const paramPData = pdataFromBase64(pseed)
 			if (paramPData) {
+				updateSeedText(pseed)
 				drawPainting(paramPData)
 			} else {
 				fullGenerate()
