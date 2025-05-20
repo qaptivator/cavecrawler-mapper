@@ -1,0 +1,1874 @@
+[
+  {
+    "color_name": "White",
+    "number": 1,
+    "rgb": [
+      242,
+      243,
+      243
+    ]
+  },
+  {
+    "color_name": "Grey",
+    "number": 2,
+    "rgb": [
+      161,
+      165,
+      162
+    ]
+  },
+  {
+    "color_name": "Light yellow",
+    "number": 3,
+    "rgb": [
+      249,
+      233,
+      153
+    ]
+  },
+  {
+    "color_name": "Brick yellow",
+    "number": 5,
+    "rgb": [
+      215,
+      197,
+      154
+    ]
+  },
+  {
+    "color_name": "Light green (Mint)",
+    "number": 6,
+    "rgb": [
+      194,
+      218,
+      184
+    ]
+  },
+  {
+    "color_name": "Light reddish violet",
+    "number": 9,
+    "rgb": [
+      232,
+      186,
+      200
+    ]
+  },
+  {
+    "color_name": "Pastel Blue",
+    "number": 11,
+    "rgb": [
+      128,
+      187,
+      219
+    ]
+  },
+  {
+    "color_name": "Light orange brown",
+    "number": 12,
+    "rgb": [
+      203,
+      132,
+      66
+    ]
+  },
+  {
+    "color_name": "Nougat",
+    "number": 18,
+    "rgb": [
+      204,
+      142,
+      105
+    ]
+  },
+  {
+    "color_name": "Bright red",
+    "number": 21,
+    "rgb": [
+      196,
+      40,
+      28
+    ]
+  },
+  {
+    "color_name": "Med. reddish violet",
+    "number": 22,
+    "rgb": [
+      196,
+      112,
+      160
+    ]
+  },
+  {
+    "color_name": "Bright blue",
+    "number": 23,
+    "rgb": [
+      13,
+      105,
+      172
+    ]
+  },
+  {
+    "color_name": "Bright yellow",
+    "number": 24,
+    "rgb": [
+      245,
+      205,
+      48
+    ]
+  },
+  {
+    "color_name": "Earth orange",
+    "number": 25,
+    "rgb": [
+      98,
+      71,
+      50
+    ]
+  },
+  {
+    "color_name": "Black",
+    "number": 26,
+    "rgb": [
+      27,
+      42,
+      53
+    ]
+  },
+  {
+    "color_name": "Dark grey",
+    "number": 27,
+    "rgb": [
+      109,
+      110,
+      108
+    ]
+  },
+  {
+    "color_name": "Dark green",
+    "number": 28,
+    "rgb": [
+      40,
+      127,
+      71
+    ]
+  },
+  {
+    "color_name": "Medium green",
+    "number": 29,
+    "rgb": [
+      161,
+      196,
+      140
+    ]
+  },
+  {
+    "color_name": "Lig. Yellowich orange",
+    "number": 36,
+    "rgb": [
+      243,
+      207,
+      155
+    ]
+  },
+  {
+    "color_name": "Bright green",
+    "number": 37,
+    "rgb": [
+      75,
+      151,
+      75
+    ]
+  },
+  {
+    "color_name": "Dark orange",
+    "number": 38,
+    "rgb": [
+      160,
+      95,
+      53
+    ]
+  },
+  {
+    "color_name": "Light bluish violet",
+    "number": 39,
+    "rgb": [
+      193,
+      202,
+      222
+    ]
+  },
+  {
+    "color_name": "Transparent",
+    "number": 40,
+    "rgb": [
+      236,
+      236,
+      236
+    ]
+  },
+  {
+    "color_name": "Tr. Red",
+    "number": 41,
+    "rgb": [
+      205,
+      84,
+      75
+    ]
+  },
+  {
+    "color_name": "Tr. Lg blue",
+    "number": 42,
+    "rgb": [
+      193,
+      223,
+      240
+    ]
+  },
+  {
+    "color_name": "Tr. Blue",
+    "number": 43,
+    "rgb": [
+      123,
+      182,
+      232
+    ]
+  },
+  {
+    "color_name": "Tr. Yellow",
+    "number": 44,
+    "rgb": [
+      247,
+      241,
+      141
+    ]
+  },
+  {
+    "color_name": "Light blue",
+    "number": 45,
+    "rgb": [
+      180,
+      210,
+      228
+    ]
+  },
+  {
+    "color_name": "Tr. Flu. Reddish orange",
+    "number": 47,
+    "rgb": [
+      217,
+      133,
+      108
+    ]
+  },
+  {
+    "color_name": "Tr. Green",
+    "number": 48,
+    "rgb": [
+      132,
+      182,
+      141
+    ]
+  },
+  {
+    "color_name": "Tr. Flu. Green",
+    "number": 49,
+    "rgb": [
+      248,
+      241,
+      132
+    ]
+  },
+  {
+    "color_name": "Phosph. White",
+    "number": 50,
+    "rgb": [
+      236,
+      232,
+      222
+    ]
+  },
+  {
+    "color_name": "Light red",
+    "number": 100,
+    "rgb": [
+      238,
+      196,
+      182
+    ]
+  },
+  {
+    "color_name": "Medium red",
+    "number": 101,
+    "rgb": [
+      218,
+      134,
+      122
+    ]
+  },
+  {
+    "color_name": "Medium blue",
+    "number": 102,
+    "rgb": [
+      110,
+      153,
+      202
+    ]
+  },
+  {
+    "color_name": "Light grey",
+    "number": 103,
+    "rgb": [
+      199,
+      193,
+      183
+    ]
+  },
+  {
+    "color_name": "Bright violet",
+    "number": 104,
+    "rgb": [
+      107,
+      50,
+      124
+    ]
+  },
+  {
+    "color_name": "Br. yellowish orange",
+    "number": 105,
+    "rgb": [
+      226,
+      155,
+      64
+    ]
+  },
+  {
+    "color_name": "Bright orange",
+    "number": 106,
+    "rgb": [
+      218,
+      133,
+      65
+    ]
+  },
+  {
+    "color_name": "Bright bluish green",
+    "number": 107,
+    "rgb": [
+      0,
+      143,
+      156
+    ]
+  },
+  {
+    "color_name": "Earth yellow",
+    "number": 108,
+    "rgb": [
+      104,
+      92,
+      67
+    ]
+  },
+  {
+    "color_name": "Bright bluish violet",
+    "number": 110,
+    "rgb": [
+      67,
+      84,
+      147
+    ]
+  },
+  {
+    "color_name": "Tr. Brown",
+    "number": 111,
+    "rgb": [
+      191,
+      183,
+      177
+    ]
+  },
+  {
+    "color_name": "Medium bluish violet",
+    "number": 112,
+    "rgb": [
+      104,
+      116,
+      172
+    ]
+  },
+  {
+    "color_name": "Tr. Medi. reddish violet",
+    "number": 113,
+    "rgb": [
+      229,
+      173,
+      200
+    ]
+  },
+  {
+    "color_name": "Med. yellowish green",
+    "number": 115,
+    "rgb": [
+      199,
+      210,
+      60
+    ]
+  },
+  {
+    "color_name": "Med. bluish green",
+    "number": 116,
+    "rgb": [
+      85,
+      165,
+      175
+    ]
+  },
+  {
+    "color_name": "Light bluish green",
+    "number": 118,
+    "rgb": [
+      183,
+      215,
+      213
+    ]
+  },
+  {
+    "color_name": "Br. yellowish green",
+    "number": 119,
+    "rgb": [
+      164,
+      189,
+      71
+    ]
+  },
+  {
+    "color_name": "Lig. yellowish green",
+    "number": 120,
+    "rgb": [
+      217,
+      228,
+      167
+    ]
+  },
+  {
+    "color_name": "Med. yellowish orange",
+    "number": 121,
+    "rgb": [
+      231,
+      172,
+      88
+    ]
+  },
+  {
+    "color_name": "Br. reddish orange",
+    "number": 123,
+    "rgb": [
+      211,
+      111,
+      76
+    ]
+  },
+  {
+    "color_name": "Bright reddish violet",
+    "number": 124,
+    "rgb": [
+      146,
+      57,
+      120
+    ]
+  },
+  {
+    "color_name": "Light orange",
+    "number": 125,
+    "rgb": [
+      234,
+      184,
+      146
+    ]
+  },
+  {
+    "color_name": "Tr. Bright bluish violet",
+    "number": 126,
+    "rgb": [
+      165,
+      165,
+      203
+    ]
+  },
+  {
+    "color_name": "Gold",
+    "number": 127,
+    "rgb": [
+      220,
+      188,
+      129
+    ]
+  },
+  {
+    "color_name": "Dark nougat",
+    "number": 128,
+    "rgb": [
+      174,
+      122,
+      89
+    ]
+  },
+  {
+    "color_name": "Silver",
+    "number": 131,
+    "rgb": [
+      156,
+      163,
+      168
+    ]
+  },
+  {
+    "color_name": "Neon orange",
+    "number": 133,
+    "rgb": [
+      213,
+      115,
+      61
+    ]
+  },
+  {
+    "color_name": "Neon green",
+    "number": 134,
+    "rgb": [
+      216,
+      221,
+      86
+    ]
+  },
+  {
+    "color_name": "Sand blue",
+    "number": 135,
+    "rgb": [
+      116,
+      134,
+      157
+    ]
+  },
+  {
+    "color_name": "Sand violet",
+    "number": 136,
+    "rgb": [
+      135,
+      124,
+      144
+    ]
+  },
+  {
+    "color_name": "Medium orange",
+    "number": 137,
+    "rgb": [
+      224,
+      152,
+      100
+    ]
+  },
+  {
+    "color_name": "Sand yellow",
+    "number": 138,
+    "rgb": [
+      149,
+      138,
+      115
+    ]
+  },
+  {
+    "color_name": "Earth blue",
+    "number": 140,
+    "rgb": [
+      32,
+      58,
+      86
+    ]
+  },
+  {
+    "color_name": "Earth green",
+    "number": 141,
+    "rgb": [
+      39,
+      70,
+      45
+    ]
+  },
+  {
+    "color_name": "Tr. Flu. Blue",
+    "number": 143,
+    "rgb": [
+      207,
+      226,
+      247
+    ]
+  },
+  {
+    "color_name": "Sand blue metallic",
+    "number": 145,
+    "rgb": [
+      121,
+      136,
+      161
+    ]
+  },
+  {
+    "color_name": "Sand violet metallic",
+    "number": 146,
+    "rgb": [
+      149,
+      142,
+      163
+    ]
+  },
+  {
+    "color_name": "Sand yellow metallic",
+    "number": 147,
+    "rgb": [
+      147,
+      135,
+      103
+    ]
+  },
+  {
+    "color_name": "Dark grey metallic",
+    "number": 148,
+    "rgb": [
+      87,
+      88,
+      87
+    ]
+  },
+  {
+    "color_name": "Black metallic",
+    "number": 149,
+    "rgb": [
+      22,
+      29,
+      50
+    ]
+  },
+  {
+    "color_name": "Light grey metallic",
+    "number": 150,
+    "rgb": [
+      171,
+      173,
+      172
+    ]
+  },
+  {
+    "color_name": "Sand green",
+    "number": 151,
+    "rgb": [
+      120,
+      144,
+      130
+    ]
+  },
+  {
+    "color_name": "Sand red",
+    "number": 153,
+    "rgb": [
+      149,
+      121,
+      119
+    ]
+  },
+  {
+    "color_name": "Dark red",
+    "number": 154,
+    "rgb": [
+      123,
+      46,
+      47
+    ]
+  },
+  {
+    "color_name": "Tr. Flu. Yellow",
+    "number": 157,
+    "rgb": [
+      255,
+      246,
+      123
+    ]
+  },
+  {
+    "color_name": "Tr. Flu. Red",
+    "number": 158,
+    "rgb": [
+      225,
+      164,
+      194
+    ]
+  },
+  {
+    "color_name": "Gun metallic",
+    "number": 168,
+    "rgb": [
+      117,
+      108,
+      98
+    ]
+  },
+  {
+    "color_name": "Red flip/flop",
+    "number": 176,
+    "rgb": [
+      151,
+      105,
+      91
+    ]
+  },
+  {
+    "color_name": "Yellow flip/flop",
+    "number": 178,
+    "rgb": [
+      180,
+      132,
+      85
+    ]
+  },
+  {
+    "color_name": "Silver flip/flop",
+    "number": 179,
+    "rgb": [
+      137,
+      135,
+      136
+    ]
+  },
+  {
+    "color_name": "Curry",
+    "number": 180,
+    "rgb": [
+      215,
+      169,
+      75
+    ]
+  },
+  {
+    "color_name": "Fire Yellow",
+    "number": 190,
+    "rgb": [
+      249,
+      214,
+      46
+    ]
+  },
+  {
+    "color_name": "Flame yellowish orange",
+    "number": 191,
+    "rgb": [
+      232,
+      171,
+      45
+    ]
+  },
+  {
+    "color_name": "Reddish brown",
+    "number": 192,
+    "rgb": [
+      105,
+      64,
+      40
+    ]
+  },
+  {
+    "color_name": "Flame reddish orange",
+    "number": 193,
+    "rgb": [
+      207,
+      96,
+      36
+    ]
+  },
+  {
+    "color_name": "Medium stone grey",
+    "number": 194,
+    "rgb": [
+      163,
+      162,
+      165
+    ]
+  },
+  {
+    "color_name": "Royal blue",
+    "number": 195,
+    "rgb": [
+      70,
+      103,
+      164
+    ]
+  },
+  {
+    "color_name": "Dark Royal blue",
+    "number": 196,
+    "rgb": [
+      35,
+      71,
+      139
+    ]
+  },
+  {
+    "color_name": "Bright reddish lilac",
+    "number": 198,
+    "rgb": [
+      142,
+      66,
+      133
+    ]
+  },
+  {
+    "color_name": "Dark stone grey",
+    "number": 199,
+    "rgb": [
+      99,
+      95,
+      98
+    ]
+  },
+  {
+    "color_name": "Lemon metalic",
+    "number": 200,
+    "rgb": [
+      130,
+      138,
+      93
+    ]
+  },
+  {
+    "color_name": "Light stone grey",
+    "number": 208,
+    "rgb": [
+      229,
+      228,
+      223
+    ]
+  },
+  {
+    "color_name": "Dark Curry",
+    "number": 209,
+    "rgb": [
+      176,
+      142,
+      68
+    ]
+  },
+  {
+    "color_name": "Faded green",
+    "number": 210,
+    "rgb": [
+      112,
+      149,
+      120
+    ]
+  },
+  {
+    "color_name": "Turquoise",
+    "number": 211,
+    "rgb": [
+      121,
+      181,
+      181
+    ]
+  },
+  {
+    "color_name": "Light Royal blue",
+    "number": 212,
+    "rgb": [
+      159,
+      195,
+      233
+    ]
+  },
+  {
+    "color_name": "Medium Royal blue",
+    "number": 213,
+    "rgb": [
+      108,
+      129,
+      183
+    ]
+  },
+  {
+    "color_name": "Rust",
+    "number": 216,
+    "rgb": [
+      144,
+      76,
+      42
+    ]
+  },
+  {
+    "color_name": "Brown",
+    "number": 217,
+    "rgb": [
+      124,
+      92,
+      70
+    ]
+  },
+  {
+    "color_name": "Reddish lilac",
+    "number": 218,
+    "rgb": [
+      150,
+      112,
+      159
+    ]
+  },
+  {
+    "color_name": "Lilac",
+    "number": 219,
+    "rgb": [
+      107,
+      98,
+      155
+    ]
+  },
+  {
+    "color_name": "Light lilac",
+    "number": 220,
+    "rgb": [
+      167,
+      169,
+      206
+    ]
+  },
+  {
+    "color_name": "Bright purple",
+    "number": 221,
+    "rgb": [
+      205,
+      98,
+      152
+    ]
+  },
+  {
+    "color_name": "Light purple",
+    "number": 222,
+    "rgb": [
+      228,
+      173,
+      200
+    ]
+  },
+  {
+    "color_name": "Light pink",
+    "number": 223,
+    "rgb": [
+      220,
+      144,
+      149
+    ]
+  },
+  {
+    "color_name": "Light brick yellow",
+    "number": 224,
+    "rgb": [
+      240,
+      213,
+      160
+    ]
+  },
+  {
+    "color_name": "Warm yellowish orange",
+    "number": 225,
+    "rgb": [
+      235,
+      184,
+      127
+    ]
+  },
+  {
+    "color_name": "Cool yellow",
+    "number": 226,
+    "rgb": [
+      253,
+      234,
+      141
+    ]
+  },
+  {
+    "color_name": "Dove blue",
+    "number": 232,
+    "rgb": [
+      125,
+      187,
+      221
+    ]
+  },
+  {
+    "color_name": "Medium lilac",
+    "number": 268,
+    "rgb": [
+      52,
+      43,
+      117
+    ]
+  },
+  {
+    "color_name": "Slime green",
+    "number": 301,
+    "rgb": [
+      80,
+      109,
+      84
+    ]
+  },
+  {
+    "color_name": "Smoky grey",
+    "number": 302,
+    "rgb": [
+      91,
+      93,
+      105
+    ]
+  },
+  {
+    "color_name": "Dark blue",
+    "number": 303,
+    "rgb": [
+      0,
+      16,
+      176
+    ]
+  },
+  {
+    "color_name": "Parsley green",
+    "number": 304,
+    "rgb": [
+      44,
+      101,
+      29
+    ]
+  },
+  {
+    "color_name": "Steel blue",
+    "number": 305,
+    "rgb": [
+      82,
+      124,
+      174
+    ]
+  },
+  {
+    "color_name": "Storm blue",
+    "number": 306,
+    "rgb": [
+      51,
+      88,
+      130
+    ]
+  },
+  {
+    "color_name": "Lapis",
+    "number": 307,
+    "rgb": [
+      16,
+      42,
+      220
+    ]
+  },
+  {
+    "color_name": "Dark indigo",
+    "number": 308,
+    "rgb": [
+      61,
+      21,
+      133
+    ]
+  },
+  {
+    "color_name": "Sea green",
+    "number": 309,
+    "rgb": [
+      52,
+      142,
+      64
+    ]
+  },
+  {
+    "color_name": "Shamrock",
+    "number": 310,
+    "rgb": [
+      91,
+      154,
+      76
+    ]
+  },
+  {
+    "color_name": "Fossil",
+    "number": 311,
+    "rgb": [
+      159,
+      161,
+      172
+    ]
+  },
+  {
+    "color_name": "Mulberry",
+    "number": 312,
+    "rgb": [
+      89,
+      34,
+      89
+    ]
+  },
+  {
+    "color_name": "Forest green",
+    "number": 313,
+    "rgb": [
+      31,
+      128,
+      29
+    ]
+  },
+  {
+    "color_name": "Cadet blue",
+    "number": 314,
+    "rgb": [
+      159,
+      173,
+      192
+    ]
+  },
+  {
+    "color_name": "Electric blue",
+    "number": 315,
+    "rgb": [
+      9,
+      137,
+      207
+    ]
+  },
+  {
+    "color_name": "Eggplant",
+    "number": 316,
+    "rgb": [
+      123,
+      0,
+      123
+    ]
+  },
+  {
+    "color_name": "Moss",
+    "number": 317,
+    "rgb": [
+      124,
+      156,
+      107
+    ]
+  },
+  {
+    "color_name": "Artichoke",
+    "number": 318,
+    "rgb": [
+      138,
+      171,
+      133
+    ]
+  },
+  {
+    "color_name": "Sage green",
+    "number": 319,
+    "rgb": [
+      185,
+      196,
+      177
+    ]
+  },
+  {
+    "color_name": "Ghost grey",
+    "number": 320,
+    "rgb": [
+      202,
+      203,
+      209
+    ]
+  },
+  {
+    "color_name": "Lilac",
+    "number": 321,
+    "rgb": [
+      167,
+      94,
+      155
+    ]
+  },
+  {
+    "color_name": "Plum",
+    "number": 322,
+    "rgb": [
+      123,
+      47,
+      123
+    ]
+  },
+  {
+    "color_name": "Olivine",
+    "number": 323,
+    "rgb": [
+      148,
+      190,
+      129
+    ]
+  },
+  {
+    "color_name": "Laurel green",
+    "number": 324,
+    "rgb": [
+      168,
+      189,
+      153
+    ]
+  },
+  {
+    "color_name": "Quill grey",
+    "number": 325,
+    "rgb": [
+      223,
+      223,
+      222
+    ]
+  },
+  {
+    "color_name": "Crimson",
+    "number": 327,
+    "rgb": [
+      151,
+      0,
+      0
+    ]
+  },
+  {
+    "color_name": "Mint",
+    "number": 328,
+    "rgb": [
+      177,
+      229,
+      166
+    ]
+  },
+  {
+    "color_name": "Baby blue",
+    "number": 329,
+    "rgb": [
+      152,
+      194,
+      219
+    ]
+  },
+  {
+    "color_name": "Carnation pink",
+    "number": 330,
+    "rgb": [
+      255,
+      152,
+      220
+    ]
+  },
+  {
+    "color_name": "Persimmon",
+    "number": 331,
+    "rgb": [
+      255,
+      89,
+      89
+    ]
+  },
+  {
+    "color_name": "Maroon",
+    "number": 332,
+    "rgb": [
+      117,
+      0,
+      0
+    ]
+  },
+  {
+    "color_name": "Gold",
+    "number": 333,
+    "rgb": [
+      239,
+      184,
+      56
+    ]
+  },
+  {
+    "color_name": "Daisy orange",
+    "number": 334,
+    "rgb": [
+      248,
+      217,
+      109
+    ]
+  },
+  {
+    "color_name": "Pearl",
+    "number": 335,
+    "rgb": [
+      231,
+      231,
+      236
+    ]
+  },
+  {
+    "color_name": "Fog",
+    "number": 336,
+    "rgb": [
+      199,
+      212,
+      228
+    ]
+  },
+  {
+    "color_name": "Salmon",
+    "number": 337,
+    "rgb": [
+      255,
+      148,
+      148
+    ]
+  },
+  {
+    "color_name": "Terra Cotta",
+    "number": 338,
+    "rgb": [
+      190,
+      104,
+      98
+    ]
+  },
+  {
+    "color_name": "Cocoa",
+    "number": 339,
+    "rgb": [
+      86,
+      36,
+      36
+    ]
+  },
+  {
+    "color_name": "Wheat",
+    "number": 340,
+    "rgb": [
+      241,
+      231,
+      199
+    ]
+  },
+  {
+    "color_name": "Buttermilk",
+    "number": 341,
+    "rgb": [
+      254,
+      243,
+      187
+    ]
+  },
+  {
+    "color_name": "Mauve",
+    "number": 342,
+    "rgb": [
+      224,
+      178,
+      208
+    ]
+  },
+  {
+    "color_name": "Sunrise",
+    "number": 343,
+    "rgb": [
+      212,
+      144,
+      189
+    ]
+  },
+  {
+    "color_name": "Tawny",
+    "number": 344,
+    "rgb": [
+      150,
+      85,
+      85
+    ]
+  },
+  {
+    "color_name": "Rust",
+    "number": 345,
+    "rgb": [
+      143,
+      76,
+      42
+    ]
+  },
+  {
+    "color_name": "Cashmere",
+    "number": 346,
+    "rgb": [
+      211,
+      190,
+      150
+    ]
+  },
+  {
+    "color_name": "Khaki",
+    "number": 347,
+    "rgb": [
+      226,
+      220,
+      188
+    ]
+  },
+  {
+    "color_name": "Lily white",
+    "number": 348,
+    "rgb": [
+      237,
+      234,
+      234
+    ]
+  },
+  {
+    "color_name": "Seashell",
+    "number": 349,
+    "rgb": [
+      233,
+      218,
+      218
+    ]
+  },
+  {
+    "color_name": "Burgundy",
+    "number": 350,
+    "rgb": [
+      136,
+      62,
+      62
+    ]
+  },
+  {
+    "color_name": "Cork",
+    "number": 351,
+    "rgb": [
+      188,
+      155,
+      93
+    ]
+  },
+  {
+    "color_name": "Burlap",
+    "number": 352,
+    "rgb": [
+      199,
+      172,
+      120
+    ]
+  },
+  {
+    "color_name": "Beige",
+    "number": 353,
+    "rgb": [
+      202,
+      191,
+      163
+    ]
+  },
+  {
+    "color_name": "Oyster",
+    "number": 354,
+    "rgb": [
+      187,
+      179,
+      178
+    ]
+  },
+  {
+    "color_name": "Pine Cone",
+    "number": 355,
+    "rgb": [
+      108,
+      88,
+      75
+    ]
+  },
+  {
+    "color_name": "Fawn brown",
+    "number": 356,
+    "rgb": [
+      160,
+      132,
+      79
+    ]
+  },
+  {
+    "color_name": "Hurricane grey",
+    "number": 357,
+    "rgb": [
+      149,
+      137,
+      136
+    ]
+  },
+  {
+    "color_name": "Cloudy grey",
+    "number": 358,
+    "rgb": [
+      171,
+      168,
+      158
+    ]
+  },
+  {
+    "color_name": "Linen",
+    "number": 359,
+    "rgb": [
+      175,
+      148,
+      131
+    ]
+  },
+  {
+    "color_name": "Copper",
+    "number": 360,
+    "rgb": [
+      150,
+      103,
+      102
+    ]
+  },
+  {
+    "color_name": "Medium brown",
+    "number": 361,
+    "rgb": [
+      86,
+      66,
+      54
+    ]
+  },
+  {
+    "color_name": "Bronze",
+    "number": 362,
+    "rgb": [
+      126,
+      104,
+      63
+    ]
+  },
+  {
+    "color_name": "Flint",
+    "number": 363,
+    "rgb": [
+      105,
+      102,
+      92
+    ]
+  },
+  {
+    "color_name": "Dark taupe",
+    "number": 364,
+    "rgb": [
+      90,
+      76,
+      66
+    ]
+  },
+  {
+    "color_name": "Burnt Sienna",
+    "number": 365,
+    "rgb": [
+      106,
+      57,
+      9
+    ]
+  },
+  {
+    "color_name": "Institutional white",
+    "number": 1001,
+    "rgb": [
+      248,
+      248,
+      248
+    ]
+  },
+  {
+    "color_name": "Mid gray",
+    "number": 1002,
+    "rgb": [
+      205,
+      205,
+      205
+    ]
+  },
+  {
+    "color_name": "Really black",
+    "number": 1003,
+    "rgb": [
+      17,
+      17,
+      17
+    ]
+  },
+  {
+    "color_name": "Really red",
+    "number": 1004,
+    "rgb": [
+      255,
+      0,
+      0
+    ]
+  },
+  {
+    "color_name": "Deep orange",
+    "number": 1005,
+    "rgb": [
+      255,
+      176,
+      0
+    ]
+  },
+  {
+    "color_name": "Alder",
+    "number": 1006,
+    "rgb": [
+      180,
+      128,
+      255
+    ]
+  },
+  {
+    "color_name": "Dusty Rose",
+    "number": 1007,
+    "rgb": [
+      163,
+      75,
+      75
+    ]
+  },
+  {
+    "color_name": "Olive",
+    "number": 1008,
+    "rgb": [
+      193,
+      190,
+      66
+    ]
+  },
+  {
+    "color_name": "New Yeller",
+    "number": 1009,
+    "rgb": [
+      255,
+      255,
+      0
+    ]
+  },
+  {
+    "color_name": "Really blue",
+    "number": 1010,
+    "rgb": [
+      0,
+      0,
+      255
+    ]
+  },
+  {
+    "color_name": "Navy blue",
+    "number": 1011,
+    "rgb": [
+      0,
+      32,
+      96
+    ]
+  },
+  {
+    "color_name": "Deep blue",
+    "number": 1012,
+    "rgb": [
+      33,
+      84,
+      185
+    ]
+  },
+  {
+    "color_name": "Cyan",
+    "number": 1013,
+    "rgb": [
+      4,
+      175,
+      236
+    ]
+  },
+  {
+    "color_name": "CGA brown",
+    "number": 1014,
+    "rgb": [
+      170,
+      85,
+      0
+    ]
+  },
+  {
+    "color_name": "Magenta",
+    "number": 1015,
+    "rgb": [
+      170,
+      0,
+      170
+    ]
+  },
+  {
+    "color_name": "Pink",
+    "number": 1016,
+    "rgb": [
+      255,
+      102,
+      204
+    ]
+  },
+  {
+    "color_name": "Deep orange",
+    "number": 1017,
+    "rgb": [
+      255,
+      175,
+      0
+    ]
+  },
+  {
+    "color_name": "Teal",
+    "number": 1018,
+    "rgb": [
+      18,
+      238,
+      212
+    ]
+  },
+  {
+    "color_name": "Toothpaste",
+    "number": 1019,
+    "rgb": [
+      0,
+      255,
+      255
+    ]
+  },
+  {
+    "color_name": "Lime green",
+    "number": 1020,
+    "rgb": [
+      0,
+      255,
+      0
+    ]
+  },
+  {
+    "color_name": "Camo",
+    "number": 1021,
+    "rgb": [
+      58,
+      125,
+      21
+    ]
+  },
+  {
+    "color_name": "Grime",
+    "number": 1022,
+    "rgb": [
+      127,
+      142,
+      100
+    ]
+  },
+  {
+    "color_name": "Lavender",
+    "number": 1023,
+    "rgb": [
+      140,
+      91,
+      159
+    ]
+  },
+  {
+    "color_name": "Pastel light blue",
+    "number": 1024,
+    "rgb": [
+      175,
+      221,
+      255
+    ]
+  },
+  {
+    "color_name": "Pastel orange",
+    "number": 1025,
+    "rgb": [
+      255,
+      201,
+      201
+    ]
+  },
+  {
+    "color_name": "Pastel violet",
+    "number": 1026,
+    "rgb": [
+      177,
+      167,
+      255
+    ]
+  },
+  {
+    "color_name": "Pastel blue-green",
+    "number": 1027,
+    "rgb": [
+      159,
+      243,
+      233
+    ]
+  },
+  {
+    "color_name": "Pastel green",
+    "number": 1028,
+    "rgb": [
+      204,
+      255,
+      204
+    ]
+  },
+  {
+    "color_name": "Pastel yellow",
+    "number": 1029,
+    "rgb": [
+      255,
+      255,
+      204
+    ]
+  },
+  {
+    "color_name": "Pastel brown",
+    "number": 1030,
+    "rgb": [
+      255,
+      204,
+      153
+    ]
+  },
+  {
+    "color_name": "Royal purple",
+    "number": 1031,
+    "rgb": [
+      98,
+      37,
+      209
+    ]
+  },
+  {
+    "color_name": "Hot pink",
+    "number": 1032,
+    "rgb": [
+      255,
+      0,
+      191
+    ]
+  }
+]

@@ -13,7 +13,7 @@
 		/>
 		<link
 			rel="stylesheet"
-			href="assets/global.css"
+			href="styles.css"
 		/>
 		<link
 			rel="preconnect"
@@ -117,45 +117,11 @@
 
 		<div class="flex text-black mt-4 text-xl space-x-2">
 			<button
-				id="offset-down"
+				id="generate-btn"
 				type="button"
-				class="order-1 p-2 bg-white rounded-lg w-10 h-10"
+				class="order-1 p-2 bg-white rounded-lg"
 			>
-				<
-			</button>
-
-			<div
-				id="offset-info"
-				class="order-2 p-2 text-center text-white"
-			>
-				0
-			</div>
-			<button
-				id="offset-up"
-				type="button"
-				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
-			>
-				>
-			</button>
-			<button
-				id="rotate-image"
-				type="button"
-				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="size-6"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
-					/>
-				</svg>
+				Generate
 			</button>
 		</div>
 		<!--<div id="content" class="block text-center">
@@ -168,15 +134,239 @@
     </div>-->
 		<script>
 			const IMAGE_SIZE = 500
+			const BORDER_WIDTH = 25
+			const BORDER_COLOR = '#554f56'
+			const CANVAS_COLOR = '#ffffff'
+
+			const MIN_SIZE = 150
+			const BOUNDS_MARGIN = 200
+			const TRUE_BOUNDS_MIN = BORDER_WIDTH
+			const TRUE_BOUNDS_MAX = IMAGE_SIZE - BORDER_WIDTH - BOUNDS_MARGIN
 
 			const canvas = document.getElementById('main-canvas')
 			canvas.width = IMAGE_SIZE
 			canvas.height = IMAGE_SIZE
 			const ctx = canvas.getContext('2d')
+			const generateBtn = document.getElementById('generate-btn')
 
-			/*offsetUp.addEventListener('click', () => {
-				cycleOffset += 1
-			})*/
+			const jsonReq = new XMLHttpRequest()
+			jsonReq.open('GET', 'assets/BRICKCOLORS.json', false)
+			jsonReq.send(null)
+			if (!jsonReq.responseText) {
+				console.error('Failed to load BRICKCOLORS.json')
+			}
+			const brickcolors = JSON.parse(jsonReq.responseText || '{}')
+			function brickcolorToHex(bc) {
+				if (!bc || !bc?.rgb) return '#000000'
+				return `#${(
+					(1 << 24) +
+					(bc.rgb[0] << 16) +
+					(bc.rgb[1] << 8) +
+					bc.rgb[2]
+				)
+					.toString(16)
+					.slice(1)}`
+			}
+
+			function randomInt(min, max) {
+				min = Math.ceil(min)
+				max = Math.floor(max)
+				if (min === max) return min
+				return Math.floor(Math.random() * (max - min + 1)) + min
+			}
+
+			/**
+			 * pdata -- painting data
+			 * {
+			 *  count: int,
+			 *  rectangles: [
+			 *      {
+			 *         color: int,
+			 *         x: int,
+			 *         y: int,
+			 *         width: int,
+			 *         height: int,
+			 *      }
+			 *  ]
+			 * }
+			 *
+			 * painting: <2b rectangle count 1-3><45b rectangle 1><45b rectangle 2>...
+			 * rectangle: <9b color><9b x><9b y><9b width><9b height>
+			 */
+			/* prettier-ignore */
+			const BASE64_CHARSET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_']
+			function pdataToBase64(pdata) {
+				if (!pdata) return
+
+				const bitArray = []
+
+				const countBits = pdata.count.toString(2).padStart(2, '0')
+				bitArray.push(...countBits)
+
+				pdata.rectangles.forEach((rect) => {
+					const colorBits = rect.color.toString(2).padStart(9, '0')
+					const xBits = rect.x.toString(2).padStart(9, '0')
+					const yBits = rect.y.toString(2).padStart(9, '0')
+					const widthBits = rect.width.toString(2).padStart(9, '0')
+					const heightBits = rect.height.toString(2).padStart(9, '0')
+
+					bitArray.push(
+						...colorBits,
+						...xBits,
+						...yBits,
+						...widthBits,
+						...heightBits
+					)
+				})
+
+				let base64String = ''
+				for (let i = 0; i < bitArray.length; i += 6) {
+					const chunk = bitArray
+						.slice(i, i + 6)
+						.join('')
+						.padEnd(6, '0')
+					const index = parseInt(chunk, 2)
+					base64String += BASE64_CHARSET[index]
+				}
+
+				return base64String
+			}
+			function pdataFromBase64(str) {
+				if (!str) return
+
+				const bitArray = []
+
+				for (const char of str) {
+					const index = BASE64_CHARSET.indexOf(char)
+					const bits = index.toString(2).padStart(6, '0')
+					bitArray.push(...bits)
+				}
+
+				const countBits = bitArray.splice(0, 2).join('')
+				const count = parseInt(countBits, 2)
+
+				const rectangles = []
+
+				for (let i = 0; i < count; i++) {
+					const colorBits = bitArray.splice(0, 9).join('')
+					const xBits = bitArray.splice(0, 9).join('')
+					const yBits = bitArray.splice(0, 9).join('')
+					const widthBits = bitArray.splice(0, 9).join('')
+					const heightBits = bitArray.splice(0, 9).join('')
+
+					rectangles.push({
+						color: parseInt(colorBits, 2),
+						x: parseInt(xBits, 2),
+						y: parseInt(yBits, 2),
+						width: parseInt(widthBits, 2),
+						height: parseInt(heightBits, 2),
+					})
+				}
+
+				return { count, rectangles }
+			}
+
+			function generatePainting() {
+				const count = randomInt(1, 3)
+				const rectangles = []
+				for (let i = 0; i < count; i++) {
+					const x = randomInt(TRUE_BOUNDS_MIN, TRUE_BOUNDS_MAX)
+					const y = randomInt(TRUE_BOUNDS_MIN, TRUE_BOUNDS_MAX)
+					const width = randomInt(
+						MIN_SIZE,
+						Math.max(MIN_SIZE, TRUE_BOUNDS_MAX - x)
+					)
+					const height = randomInt(
+						MIN_SIZE,
+						Math.max(MIN_SIZE, TRUE_BOUNDS_MAX - y)
+					)
+					const color = randomInt(0, brickcolors.length)
+					rectangles.push({
+						x,
+						y,
+						width,
+						height,
+						color,
+					})
+				}
+
+				return {
+					count,
+					rectangles,
+				}
+			}
+
+			function drawPainting(pdata) {
+				// 1. preparation
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+				ctx.fillStyle = CANVAS_COLOR
+				ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+				ctx.fillStyle = BORDER_COLOR
+				ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height)
+				ctx.fillRect(
+					canvas.width - BORDER_WIDTH,
+					0,
+					BORDER_WIDTH,
+					canvas.height
+				)
+				ctx.fillRect(0, 0, canvas.width, BORDER_WIDTH)
+				ctx.fillRect(
+					0,
+					canvas.height - BORDER_WIDTH,
+					canvas.width,
+					BORDER_WIDTH
+				)
+
+				// 2. rectangles
+				const count = pdata.count
+				for (let i = 0; i < count; i++) {
+					const rect = pdata.rectangles[i]
+					//console.log('rect', rect, rect.x)
+
+					/*ctx.fillStyle = CANVAS_COLOR
+					ctx.fillRect(rect.x, rect.y, rect.width, rect.height)*/
+
+					ctx.fillStyle = brickcolorToHex(brickcolors[rect.color])
+					ctx.fillRect(
+						rect.x + BORDER_WIDTH,
+						rect.y + BORDER_WIDTH,
+						rect.width,
+						rect.height
+					)
+				}
+			}
+
+			function fullGenerate() {
+				const newPData = generatePainting()
+				//console.log('newPData', newPData)
+				drawPainting(newPData)
+				const newBase64Param = pdataToBase64(newPData)
+				history.replaceState(null, '', '#' + newBase64Param)
+			}
+
+			generateBtn.addEventListener('click', () => {
+				fullGenerate()
+			})
+
+			// document.location.search doesnt work here because live (five) server i use doesnt support url params, unlike nuxt
+			// so i hide the param with # and then remove it before parsing it
+			/*const params = new URLSearchParams(
+				document.location.toString().replace('#', '')
+			)
+			console.log('params', params, 'search', document.location.toString())
+            const base64Param = params.get('b')*/
+			// this ALSO didnt work because i dont feel like parsing the url, so we will make it MUCH simpler
+			const pseed = document.location.toString().split('#')[1]
+			const paramPData = pdataFromBase64(pseed)
+			if (paramPData) {
+				drawPainting(paramPData)
+			} else {
+				fullGenerate()
+			}
 		</script>
 	</body>
 </html>
