@@ -109,8 +109,9 @@
 				>Modern Painting</a
 			>
 			is a rare painting, which could be purchased in 2017. It showcases two
-			randomly placed rectangles with random shapes on a blank white canvas.<br />With
-			this tool, you can generate and share your paintings with just a link.
+			randomly placed rectangles with random shapes on a blank white canvas.<br />
+			With this tool, you can generate and share your paintings without even
+			paying $18,200!<br />
 			Thanks to people of LT2 Wiki Discord for suggesting this idea!
 		</section>
 		<h2
@@ -133,6 +134,13 @@
 			>
 				Enter seed
 			</button>
+			<button
+				id="share-btn"
+				type="button"
+				class="order-1 p-2 bg-white rounded-lg"
+			>
+				Share
+			</button>
 		</div>
 		<!--<div id="content" class="block text-center">
       <div class="text-xs pb-3">
@@ -148,7 +156,7 @@
 			const BORDER_COLOR = '#554f56'
 			const CANVAS_COLOR = '#ffffff'
 
-			const MIN_SIZE = 150
+			const MIN_SIZE = 100
 			const BOUNDS_MARGIN = 200
 			const TRUE_BOUNDS_MIN = BORDER_WIDTH
 			const TRUE_BOUNDS_MAX = IMAGE_SIZE - BORDER_WIDTH - BOUNDS_MARGIN
@@ -166,6 +174,7 @@
 			const ctx = canvas.getContext('2d')
 			const generateBtn = document.getElementById('generate-btn')
 			const enterSeedBtn = document.getElementById('enter-seed-btn')
+			const shareBtn = document.getElementById('share-btn')
 			const seedText = document.getElementById('seed-text')
 
 			const jsonReq = new XMLHttpRequest()
@@ -175,10 +184,12 @@
 				console.error('Failed to load BRICKCOLORS.json')
 			}
 			const brickcolors = JSON.parse(jsonReq.responseText || '{}')
-			function brickcolorToHex(bc) {
+			function brickcolorToHex(num) {
+				let bc = brickcolors[num % brickcolors.length]
+				// highly unlikely but can still happen
 				if (!bc || !bc?.rgb) {
 					//return '#000000'
-					return brickcolorToHex(brickcolors[randomInt(0, brickcolors.length)])
+					bc = brickcolors[randomInt(0, brickcolors.length)]
 				}
 				return `#${(
 					(1 << 24) +
@@ -210,8 +221,8 @@
 			 */
 			/* prettier-ignore */
 			const BASE64_CHARSET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_']
+			             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+			             '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_']
 			function pdataToBase64(pdata) {
 				if (!pdata) return
 
@@ -292,15 +303,16 @@
 				const count = randomInt(1, 3)
 				const rectangles = []
 				for (let i = 0; i < count; i++) {
+					const _min_size = MIN_SIZE
 					const x = randomInt(TRUE_BOUNDS_MIN, TRUE_BOUNDS_MAX)
 					const y = randomInt(TRUE_BOUNDS_MIN, TRUE_BOUNDS_MAX)
 					const width = randomInt(
-						MIN_SIZE,
-						Math.max(MIN_SIZE, TRUE_BOUNDS_MAX - x)
+						_min_size,
+						Math.max(_min_size, TRUE_BOUNDS_MAX) // TRUE_BOUNDS_MAX - x
 					)
 					const height = randomInt(
-						MIN_SIZE,
-						Math.max(MIN_SIZE, TRUE_BOUNDS_MAX - y)
+						_min_size,
+						Math.max(_min_size, TRUE_BOUNDS_MAX)
 					)
 					const color = randomInt(0, brickcolors.length)
 					rectangles.push({
@@ -321,10 +333,33 @@
 			function drawPainting(pdata) {
 				// 1. preparation
 				ctx.clearRect(0, 0, canvas.width, canvas.height)
-
 				ctx.fillStyle = CANVAS_COLOR
 				ctx.fillRect(0, 0, canvas.width, canvas.height)
 
+				// 2. rectangles
+				const count = pdata.count
+				for (let i = 0; i < count; i++) {
+					let rect = pdata.rectangles[i]
+					//console.log('rect', rect, rect.x)
+
+					/*ctx.fillStyle = CANVAS_COLOR
+					ctx.fillRect(rect.x, rect.y, rect.width, rect.height)*/
+
+					//ctx.fillStyle = brickcolorToHex(brickcolors[rect.color])
+					ctx.fillStyle = brickcolorToHex(rect.color)
+					rect.x = (rect.x || count * 4) % TRUE_BOUNDS_MAX
+					rect.y = (rect.y || count * 4) % TRUE_BOUNDS_MAX
+					rect.width = (rect.width || count * MIN_SIZE) % TRUE_BOUNDS_MAX
+					rect.height = (rect.height || count * MIN_SIZE) % TRUE_BOUNDS_MAX
+					ctx.fillRect(
+						rect.x + BORDER_WIDTH,
+						rect.y + BORDER_WIDTH,
+						rect.width,
+						rect.height
+					)
+				}
+
+				// 3. borders
 				ctx.fillStyle = BORDER_COLOR
 				ctx.fillRect(0, 0, BORDER_WIDTH, canvas.height)
 				ctx.fillRect(
@@ -340,24 +375,6 @@
 					canvas.width,
 					BORDER_WIDTH
 				)
-
-				// 2. rectangles
-				const count = pdata.count
-				for (let i = 0; i < count; i++) {
-					const rect = pdata.rectangles[i]
-					//console.log('rect', rect, rect.x)
-
-					/*ctx.fillStyle = CANVAS_COLOR
-					ctx.fillRect(rect.x, rect.y, rect.width, rect.height)*/
-
-					ctx.fillStyle = brickcolorToHex(brickcolors[rect.color])
-					ctx.fillRect(
-						rect.x + BORDER_WIDTH,
-						rect.y + BORDER_WIDTH,
-						rect.width,
-						rect.height
-					)
-				}
 			}
 
 			function fullGenerate() {
@@ -387,13 +404,19 @@
 				}
 			})
 
+			shareBtn.addEventListener('click', () => {
+				navigator.clipboard.writeText(window.location.href).then(() => {
+					alert('URL copied to clipboard')
+				})
+			})
+
 			// document.location.search doesnt work here because live (five) server i use doesnt support url params, unlike nuxt
 			// so i hide the param with # and then remove it before parsing it
 			/*const params = new URLSearchParams(
 				document.location.toString().replace('#', '')
 			)
 			console.log('params', params, 'search', document.location.toString())
-            const base64Param = params.get('b')*/
+			         const base64Param = params.get('b')*/
 			// this ALSO didnt work because i dont feel like parsing the url, so we will make it MUCH simpler
 			const pseed = document.location.toString().split('#')[1]
 			const paramPData = pdataFromBase64(pseed)
