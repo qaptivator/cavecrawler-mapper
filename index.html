@@ -1,121 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			rel="icon"
+			href="favicon.ico"
+			type="image/x-icon"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- HTML Meta Tags -->
-    <title>Cavecrawler Mapper</title>
-    <meta
-      name="description"
-      content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
-    />
+		<!-- HTML Meta Tags -->
+		<title>Cavecrawler Mapper</title>
+		<meta
+			name="description"
+			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
+		/>
 
-    <!-- Facebook Meta Tags -->
-    <meta
-      property="og:url"
-      content="https://qaptivator.github.io/cavecrawler-mapper/"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Cavecrawler Mapper" />
-    <meta
-      property="og:description"
-      content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
-    />
-    <meta
-      property="og:image"
-      content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
-    />
+		<!-- Facebook Meta Tags -->
+		<meta
+			property="og:url"
+			content="https://qaptivator.github.io/cavecrawler-mapper/"
+		/>
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:title"
+			content="Cavecrawler Mapper"
+		/>
+		<meta
+			property="og:description"
+			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
+		/>
+		<meta
+			property="og:image"
+			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
+		/>
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="qaptivator.github.io" />
-    <meta
-      property="twitter:url"
-      content="https://qaptivator.github.io/cavecrawler-mapper/"
-    />
-    <meta name="twitter:title" content="Cavecrawler Mapper" />
-    <meta
-      name="twitter:description"
-      content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
-    />
-    <meta
-      name="twitter:image"
-      content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
-    />
-  </head>
-  <body
-    id="container"
-    class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
-  >
-    <header class="flex w-fit pt-5 pb-10 text-left">
-      <img src="assets/icon.png" class="w-[100px] h-[100px] mr-5" />
-      <div class="block">
-        <h1 class="font-bold text-3xl">Cavecrawler Mapper</h1>
-        <footer class="text-base">
-          Made by captivator and fizzy<br />
-          for
-          <a
-            href="https://www.roblox.com/games/13822889/Lumber-Tycoon-2"
-            target="_blank"
-            >Lumber Tycoon 2</a
-          >
-          players with love ❤️<br />
-          Hosted on
-          <a
-            href="https://github.com/qaptivator/cavecrawler-mapper"
-            target="_blank"
-            >GitHub Pages</a
-          >
-        </footer>
-      </div>
-    </header>
-    <section class="text-sm pb-3 max-w-[600px]">
-      In Lumber Tycoon 2, there is a
-      <a href="https://lumber-tycoon-2.fandom.com/wiki/Maze" target="_blank"
-        >large undeground maze</a
-      >
-      located under the Tropics biome. If you complete the maze, you can get to
-      the cavecrawler wood. Every 4 days, the maze changes the path to
-      cavecrawler wood, so it seems that the maze is unique each time.<br />
-      <b
-        >With this tool you can find the working path, leading to cavecrawler
-        wood.</b
-      ><br />
-      Note: the path to cavecrawler is decided during server creation, so if you
-      are playing on an old server, current path may not work. Using the buttons
-      below, you can view the previous paths. The path refreshes every 4 days. A
-      "cycle" is the 4 day period in which the maze changes.
-    </section>
-    <h2 id="path-title" class="text-3xl"></h2>
-    <h3 id="path-footer" class="pb-3 text-lg"></h3>
-    <img id="path-image" />
-    <div class="flex text-black mt-4 text-xl space-x-2">
-      <button
-        id="offset-down"
-        type="button"
-        class="order-1 p-2 bg-white rounded-lg w-10 h-10"
-      >
-        <
-      </button>
-      <div id="offset-info" class="order-2 p-2 text-center text-white">0</div>
-      <button
-        id="offset-up"
-        type="button"
-        class="order-3 p-2 bg-white rounded-lg w-10 h-10"
-      >
-        >
-      </button>
-    </div>
-    <!--<div id="content" class="block text-center">
+		<!-- Twitter Meta Tags -->
+		<meta
+			name="twitter:card"
+			content="summary_large_image"
+		/>
+		<meta
+			property="twitter:domain"
+			content="qaptivator.github.io"
+		/>
+		<meta
+			property="twitter:url"
+			content="https://qaptivator.github.io/cavecrawler-mapper/"
+		/>
+		<meta
+			name="twitter:title"
+			content="Cavecrawler Mapper"
+		/>
+		<meta
+			name="twitter:description"
+			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
+		/>
+		<meta
+			name="twitter:image"
+			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
+		/>
+	</head>
+	<body
+		id="container"
+		class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
+	>
+		<header class="flex w-fit pt-5 pb-10 text-left">
+			<img
+				src="assets/icon.png"
+				class="w-[100px] h-[100px] mr-5"
+			/>
+			<div class="block">
+				<h1 class="font-bold text-3xl">Cavecrawler Mapper</h1>
+				<footer class="text-base">
+					Made by captivator and fizzy<br />
+					for
+					<a
+						href="https://www.roblox.com/games/13822889/Lumber-Tycoon-2"
+						target="_blank"
+						>Lumber Tycoon 2</a
+					>
+					players with love ❤️<br />
+					Hosted on
+					<a
+						href="https://github.com/qaptivator/cavecrawler-mapper"
+						target="_blank"
+						>GitHub Pages</a
+					>
+				</footer>
+			</div>
+		</header>
+		<section class="text-sm pb-3 max-w-[600px]">
+			In Lumber Tycoon 2, there is a
+			<a
+				href="https://lumber-tycoon-2.fandom.com/wiki/Maze"
+				target="_blank"
+				>large undeground maze</a
+			>
+			located under the Tropics biome. If you complete the maze, you can get to
+			the cavecrawler wood. Every 4 days, the maze changes the path to
+			cavecrawler wood, so it seems that the maze is unique each time.<br />
+			<b
+				>With this tool you can find the working path, leading to cavecrawler
+				wood.</b
+			><br />
+			Note: the path to cavecrawler is decided during server creation, so if you
+			are playing on an old server, current path may not work. Using the buttons
+			below, you can view the previous paths. The path refreshes every 4 days. A
+			"cycle" is the 4 day period in which the maze changes.
+		</section>
+		<h2
+			id="path-title"
+			class="text-3xl"
+		></h2>
+		<h3
+			id="path-footer"
+			class="pb-3 text-lg"
+		></h3>
+		<div
+			id="path-image-container"
+			class="w-[800px] h-[500px] origin-center"
+		>
+			<img
+				id="path-image"
+				class="max-w-full max-h-full block"
+			/>
+		</div>
+		<div class="flex text-black mt-4 text-xl space-x-2">
+			<button
+				id="offset-down"
+				type="button"
+				class="order-1 p-2 bg-white rounded-lg w-10 h-10"
+			>
+				<
+			</button>
+
+			<div
+				id="offset-info"
+				class="order-2 p-2 text-center text-white"
+			>
+				0
+			</div>
+			<button
+				id="offset-up"
+				type="button"
+				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
+			>
+				>
+			</button>
+			<button
+				id="rotate-image"
+				type="button"
+				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="size-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+					/>
+				</svg>
+			</button>
+		</div>
+		<!--<div id="content" class="block text-center">
       <div class="text-xs pb-3">
         Every 4 days, the maze changes the path to cavecrawler wood, so with
         this tool you can find the working map every 4 days.<br />
@@ -123,43 +197,47 @@
         you are playing on an old server, current path may not work.
       </div>
     </div>-->
-    <script>
-      const period = 8;
-      const unitModifier = 24 * 60 * 60 * 4; // Period of four days
+		<script>
+			const period = 8
+			const unitModifier = 24 * 60 * 60 * 4 // Period of four days
+			const IMAGE_CONT_WIDTH = 900
+			const IMAGE_CONT_HEIGHT = 500
 
-      let cycleOffset = 0;
-      let text = document.getElementById("path-title");
-      let countdown = document.getElementById("path-footer");
-      let image = document.getElementById("path-image");
-      let offsetUp = document.getElementById("offset-up");
-      let offsetDown = document.getElementById("offset-down");
-      let offsetInfo = document.getElementById("offset-info");
+			let cycleOffset = 0
+			let text = document.getElementById('path-title')
+			let countdown = document.getElementById('path-footer')
+			let image = document.getElementById('path-image')
+			let imageContainer = document.getElementById('path-image-container')
+			let offsetUp = document.getElementById('offset-up')
+			let offsetDown = document.getElementById('offset-down')
+			let offsetInfo = document.getElementById('offset-info')
+			let rotateImage = document.getElementById('rotate-image')
 
-      function secondsToDhms(seconds) {
-        seconds = Number(seconds);
-        const d = Math.floor(seconds / (3600 * 24));
-        const h = Math.floor((seconds % (3600 * 24)) / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        const s = Math.floor(seconds % 60);
-        const dDisplay = d > 0 ? d + (d == 1 ? " day" : " days") : "";
-        const hDisplay = h > 0 ? h + (h == 1 ? " hour" : " hours") : "";
-        const mDisplay = m > 0 ? m + (m == 1 ? " minute" : " minutes") : "";
-        const sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-        const unfiltered = [dDisplay, hDisplay, mDisplay, sDisplay];
-        const filtered = unfiltered.filter((v) => v != null && v != "");
-        return filtered.join(", ");
-      }
+			function secondsToDhms(seconds) {
+				seconds = Number(seconds)
+				const d = Math.floor(seconds / (3600 * 24))
+				const h = Math.floor((seconds % (3600 * 24)) / 3600)
+				const m = Math.floor((seconds % 3600) / 60)
+				const s = Math.floor(seconds % 60)
+				const dDisplay = d > 0 ? d + (d == 1 ? ' day' : ' days') : ''
+				const hDisplay = h > 0 ? h + (h == 1 ? ' hour' : ' hours') : ''
+				const mDisplay = m > 0 ? m + (m == 1 ? ' minute' : ' minutes') : ''
+				const sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : ''
+				const unfiltered = [dDisplay, hDisplay, mDisplay, sDisplay]
+				const filtered = unfiltered.filter((v) => v != null && v != '')
+				return filtered.join(', ')
+			}
 
-      function getTime() {
-        return Math.floor(Date.now() / 1000) + cycleOffset * unitModifier;
-      }
+			function getTime() {
+				return Math.floor(Date.now() / 1000) + cycleOffset * unitModifier
+			}
 
-      function timeUntilNextCycle() {
-        let time = getTime();
-        return unitModifier - (time % unitModifier);
-      }
+			function timeUntilNextCycle() {
+				let time = getTime()
+				return unitModifier - (time % unitModifier)
+			}
 
-      /*
+			/*
       function getCycle() {
         let period = 8;
         let unitModifier = 24 * 60 * 60 * 4; // Period of four days
@@ -170,13 +248,13 @@
       }
       */
 
-      function getCycle() {
-        let time = getTime();
-        return Math.floor((time % (period * unitModifier)) / unitModifier); // Value 0 through (1 - period)
-      }
+			function getCycle() {
+				let time = getTime()
+				return Math.floor((time % (period * unitModifier)) / unitModifier) // Value 0 through (1 - period)
+			}
 
-      function update(cycle) {
-        /*const container = document.querySelector("#container");
+			function update(cycle) {
+				/*const container = document.querySelector("#container");
         if (!container) {
           alert("Unexpected error occured, container not found.");
           return;
@@ -189,7 +267,7 @@
         const image = document.createElement("img");
         image.classList.add("path-image");*/
 
-        /*let text = document.querySelector("#path-title");
+				/*let text = document.querySelector("#path-title");
         if (!text) {
           text = document.createElement("div");
           text.classList.add("text-3xl");
@@ -209,73 +287,92 @@
           container.appendChild(image);
         }*/
 
-        /*if (!text || !countdown || !image) {
+				/*if (!text || !countdown || !image) {
           alert("Unexpected error occured, certain HTML elements not found.");
           return;
         }*/
 
-        countdown.textContent = `Refreshes in ${secondsToDhms(
-          timeUntilNextCycle()
-        )}`;
-        text.textContent = "Current path to cavecrawler wood:";
-        if (cycleOffset > 0) {
-          text.textContent = `Path to cavecrawler wood ${Math.abs(
-            cycleOffset * 4
-          )} days from now:`;
-        }
-        if (cycleOffset < 0) {
-          text.textContent = `Path to cavecrawler wood ${Math.abs(
-            cycleOffset * 4
-          )} days ago:`;
-        }
-        switch (cycle) {
-          case 0:
-            image.src = "assets/Path0.png";
-            break;
-          case 1:
-            image.src = "assets/Path1.png";
-            break;
-          case 2:
-            image.src = "assets/Path2.png";
-            break;
-          case 3:
-            image.src = "assets/Path3.png";
-            break;
-          case 4:
-            image.src = "assets/Path4.png";
-            break;
-          case 5:
-            image.src = "assets/Path5_Blocked.png";
-            text.textContent =
-              "The Maze is currently closed. You cannot get to cavecrawler wood because all of the doors are blocked. Check again later!";
-            break;
-          case 6:
-            image.src = "assets/Path6.png";
-            break;
-          case 7:
-            image.src = "assets/Path7.png";
-            break;
-          default:
-            alert("Unexpected error occured, maze cycle not found.");
-            return;
-        }
-      }
+				countdown.textContent = `Refreshes in ${secondsToDhms(
+					timeUntilNextCycle()
+				)}`
+				text.textContent = 'Current path to cavecrawler wood:'
+				if (cycleOffset > 0) {
+					text.textContent = `Path to cavecrawler wood ${Math.abs(
+						cycleOffset * 4
+					)} days from now:`
+				}
+				if (cycleOffset < 0) {
+					text.textContent = `Path to cavecrawler wood ${Math.abs(
+						cycleOffset * 4
+					)} days ago:`
+				}
+				switch (cycle) {
+					case 0:
+						image.src = 'assets/Path0.png'
+						break
+					case 1:
+						image.src = 'assets/Path1.png'
+						break
+					case 2:
+						image.src = 'assets/Path2.png'
+						break
+					case 3:
+						image.src = 'assets/Path3.png'
+						break
+					case 4:
+						image.src = 'assets/Path4.png'
+						break
+					case 5:
+						image.src = 'assets/Path5_Blocked.png'
+						text.textContent =
+							'The Maze is currently closed. You cannot get to cavecrawler wood because all of the doors are blocked. Check again later!'
+						break
+					case 6:
+						image.src = 'assets/Path6.png'
+						break
+					case 7:
+						image.src = 'assets/Path7.png'
+						break
+					default:
+						alert('Unexpected error occured, maze cycle not found.')
+						return
+				}
+			}
 
-      offsetUp.addEventListener("click", () => {
-        cycleOffset += 1;
-      });
-      offsetDown.addEventListener("click", () => {
-        cycleOffset -= 1;
-      });
+			offsetUp.addEventListener('click', () => {
+				cycleOffset += 1
+			})
+			offsetDown.addEventListener('click', () => {
+				cycleOffset -= 1
+			})
 
-      update(getCycle());
-      offsetInfo.textContent = cycleOffset;
-      setInterval(() => {
-        update(getCycle());
-        offsetInfo.textContent = cycleOffset;
-      }, 1000);
-    </script>
-    <!--<style>
+			imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
+			imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
+			rotateImage.addEventListener('click', () => {
+				const angle = image.angle || 0
+				const newAngle = angle === 360 ? 90 : angle + 90
+				image.style.transform = `rotate(${newAngle}deg)`
+				image.angle = newAngle
+
+				if (newAngle % 180 === 0) {
+					imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
+					imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
+					imageContainer.style.marginTop = '0px'
+				} else {
+					imageContainer.style.width = IMAGE_CONT_HEIGHT + 'px'
+					imageContainer.style.height = IMAGE_CONT_WIDTH / 2 + 'px'
+					imageContainer.style.marginTop = IMAGE_CONT_HEIGHT / 4 + 'px'
+				}
+			})
+
+			update(getCycle())
+			offsetInfo.textContent = cycleOffset
+			setInterval(() => {
+				update(getCycle())
+				offsetInfo.textContent = cycleOffset
+			}, 1000)
+		</script>
+		<!--<style>
       html,
       body {
         display: flex;
@@ -325,17 +422,17 @@
         width: 100%;
       }
     </style>-->
-    <style>
-      .roboto-regular {
-        font-family: "Roboto", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-      a {
-        color: white;
-        text-decoration: underline;
-        text-underline-offset: 2px;
-      }
-    </style>
-  </body>
+		<style>
+			.roboto-regular {
+				font-family: 'Roboto', sans-serif;
+				font-weight: 400;
+				font-style: normal;
+			}
+			a {
+				color: white;
+				text-decoration: underline;
+				text-underline-offset: 2px;
+			}
+		</style>
+	</body>
 </html>
