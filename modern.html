@@ -56,7 +56,7 @@
 		/>
 		<meta
 			property="og:image"
-			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
+			content="https://qaptivator.github.io/cavecrawler-mapper/assets/painting-banner.png"
 		/>
 
 		<!-- Twitter Meta Tags -->
@@ -82,7 +82,7 @@
 		/>
 		<meta
 			name="twitter:image"
-			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
+			content="https://qaptivator.github.io/cavecrawler-mapper/assets/painting-banner.png"
 		/>
 	</head>
 	<body
@@ -121,13 +121,6 @@
 		<canvas id="main-canvas"></canvas>
 		<div class="flex text-black mt-4 text-xl space-x-2">
 			<button
-				id="generate-btn"
-				type="button"
-				class="order-1 p-2 bg-white rounded-lg font-semibold"
-			>
-				Generate
-			</button>
-			<button
 				id="enter-seed-btn"
 				type="button"
 				class="order-1 p-2 bg-white rounded-lg"
@@ -135,11 +128,25 @@
 				Enter seed
 			</button>
 			<button
+				id="generate-btn"
+				type="button"
+				class="order-1 p-2 bg-neutral-300 rounded-lg font-semibold"
+			>
+				Generate
+			</button>
+			<button
 				id="share-btn"
 				type="button"
 				class="order-1 p-2 bg-white rounded-lg"
 			>
 				Share
+			</button>
+			<button
+				id="download-btn"
+				type="button"
+				class="order-1 p-2 bg-white rounded-lg"
+			>
+				Download
 			</button>
 		</div>
 		<!--<div id="content" class="block text-center">
@@ -172,10 +179,11 @@
 			canvas.width = IMAGE_SIZE
 			canvas.height = IMAGE_SIZE
 			const ctx = canvas.getContext('2d')
+			const seedText = document.getElementById('seed-text')
 			const generateBtn = document.getElementById('generate-btn')
 			const enterSeedBtn = document.getElementById('enter-seed-btn')
 			const shareBtn = document.getElementById('share-btn')
-			const seedText = document.getElementById('seed-text')
+			const downloadBtn = document.getElementById('download-btn')
 
 			const jsonReq = new XMLHttpRequest()
 			jsonReq.open('GET', 'assets/BRICKCOLORS.json', false)
@@ -330,7 +338,10 @@
 				}
 			}
 
+			let lastPdata = undefined
 			function drawPainting(pdata) {
+				lastPdata = pdata
+
 				// 1. preparation
 				ctx.clearRect(0, 0, canvas.width, canvas.height)
 				ctx.fillStyle = CANVAS_COLOR
@@ -375,6 +386,13 @@
 					canvas.width,
 					BORDER_WIDTH
 				)
+				ctx.fillStyle = '#4f4950'
+				ctx.font = '15px serif'
+				ctx.fillText(
+					'https://qaptivator.github.io/cavecrawler-mapper/modern',
+					70,
+					17
+				)
 			}
 
 			function fullGenerate() {
@@ -408,6 +426,27 @@
 				navigator.clipboard.writeText(window.location.href).then(() => {
 					alert('URL copied to clipboard')
 				})
+			})
+
+			downloadBtn.addEventListener('click', () => {
+				try {
+					const seed = seedText.innerText
+					ctx.fillStyle = '#d1d1d1'
+					ctx.font = '10px serif'
+					ctx.fillText(seed, BORDER_WIDTH + 1, BORDER_WIDTH + 11)
+					const dataURL = canvas.toDataURL('image/jpeg')
+					drawPainting(lastPdata)
+
+					const a = document.createElement('a')
+					a.href = dataURL
+					a.download = `modern_${seed}.jpg`
+
+					document.body.appendChild(a)
+					a.click()
+					document.body.removeChild(a)
+				} catch (error) {
+					console.error('Error downloading image:', error)
+				}
 			})
 
 			// document.location.search doesnt work here because live (five) server i use doesnt support url params, unlike nuxt
