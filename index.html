@@ -12,6 +12,10 @@
 			type="image/x-icon"
 		/>
 		<link
+			rel="stylesheet"
+			href="assets/global.css"
+		/>
+		<link
 			rel="preconnect"
 			href="https://fonts.googleapis.com"
 		/>
@@ -85,7 +89,7 @@
 		id="container"
 		class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
 	>
-		<header class="flex w-fit pt-5 pb-10 text-left">
+		<header class="flex w-fit pt-5 text-left">
 			<img
 				src="assets/icon.png"
 				class="w-[100px] h-[100px] mr-5"
@@ -110,6 +114,10 @@
 				</footer>
 			</div>
 		</header>
+		<nav class="pb-10 text-sm opacity-50">
+			Other pages include:
+			<a href="/modern">Modern Painting Generator</a>
+		</nav>
 		<section class="text-sm pb-3 max-w-[600px]">
 			In Lumber Tycoon 2, there is a
 			<a
@@ -372,67 +380,5 @@
 				offsetInfo.textContent = cycleOffset
 			}, 1000)
 		</script>
-		<!--<style>
-      html,
-      body {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(19, 19, 27);
-        color: white;
-      }
-      .container {
-        width: 100%;
-        max-width: 500px;
-        padding: 10px;
-      }
-      .header {
-        padding-bottom: 50px;
-        display: flex;
-        font-size: 32px;
-        white-space: nowrap;
-      }
-      .header .text {
-        display: block;
-      }
-      .header .text .top {
-        font-size: 32px;
-        font-weight: 700;
-      }
-      .header .text .bottom {
-        font-size: 16px;
-      }
-      .header .icon {
-        width: 100px;
-        height: 100px;
-        margin-right: 20px;
-      }
-      .content {
-        display: block;
-      }
-      .content .note {
-        font-size: 12px;
-        padding-bottom: 10px;
-      }
-      .content .text {
-        font-size: 32px;
-        text-align: center;
-        padding-bottom: 20px;
-      }
-      .content .path-image {
-        width: 100%;
-      }
-    </style>-->
-		<style>
-			.roboto-regular {
-				font-family: 'Roboto', sans-serif;
-				font-weight: 400;
-				font-style: normal;
-			}
-			a {
-				color: white;
-				text-decoration: underline;
-				text-underline-offset: 2px;
-			}
-		</style>
 	</body>
 </html>

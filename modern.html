@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link
+			rel="icon"
+			href="favicon.ico"
+			type="image/x-icon"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/global.css"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+
+		<!-- HTML Meta Tags -->
+		<title>Modern Painting Generator</title>
+		<meta
+			name="description"
+			content="Generate and share modern paintings from Lumber Tycoon 2"
+		/>
+
+		<!-- Facebook Meta Tags -->
+		<meta
+			property="og:url"
+			content="https://qaptivator.github.io/cavecrawler-mapper/"
+		/>
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:title"
+			content="Modern Painting Generator"
+		/>
+		<meta
+			property="og:description"
+			content="Generate and share modern paintings from Lumber Tycoon 2"
+		/>
+		<meta
+			property="og:image"
+			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
+		/>
+
+		<!-- Twitter Meta Tags -->
+		<meta
+			name="twitter:card"
+			content="summary_large_image"
+		/>
+		<meta
+			property="twitter:domain"
+			content="qaptivator.github.io"
+		/>
+		<meta
+			property="twitter:url"
+			content="https://qaptivator.github.io/cavecrawler-mapper/"
+		/>
+		<meta
+			name="twitter:title"
+			content="Modern Painting Generator"
+		/>
+		<meta
+			name="twitter:description"
+			content="Generate and share modern paintings from Lumber Tycoon 2"
+		/>
+		<meta
+			name="twitter:image"
+			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
+		/>
+	</head>
+	<body
+		id="container"
+		class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
+	>
+		<header class="flex w-fit pt-5 pb-10 text-left">
+			<img
+				src="assets/icon.png"
+				class="w-[100px] h-[100px] mr-5"
+			/>
+			<div class="block">
+				<h1 class="font-bold text-3xl">Modern Painting Generator</h1>
+				<footer class="text-base">
+					<a href="/">Go back to the main page</a><br />
+					Generate and share modern paintings from Lumber Tycoon 2
+				</footer>
+			</div>
+		</header>
+		<section class="text-sm pb-3 max-w-[600px]">
+			<a
+				href="https://lumber-tycoon-2.fandom.com/wiki/Modern_Gift"
+				target="_blank"
+				>Modern Painting</a
+			>
+			is a rare painting, which could be purchased in 2017. It showcases two
+			randomly placed rectangles with random shapes on a blank white canvas.<br />With
+			this tool, you can generate and share your paintings with just a link.
+			Thanks to people of LT2 Wiki Discord for suggesting this idea!
+		</section>
+		<canvas id="main-canvas"></canvas>
+
+		<div class="flex text-black mt-4 text-xl space-x-2">
+			<button
+				id="offset-down"
+				type="button"
+				class="order-1 p-2 bg-white rounded-lg w-10 h-10"
+			>
+				<
+			</button>
+
+			<div
+				id="offset-info"
+				class="order-2 p-2 text-center text-white"
+			>
+				0
+			</div>
+			<button
+				id="offset-up"
+				type="button"
+				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
+			>
+				>
+			</button>
+			<button
+				id="rotate-image"
+				type="button"
+				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="size-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+					/>
+				</svg>
+			</button>
+		</div>
+		<!--<div id="content" class="block text-center">
+      <div class="text-xs pb-3">
+        Every 4 days, the maze changes the path to cavecrawler wood, so with
+        this tool you can find the working map every 4 days.<br />
+        Note: the path to cavecrawler is decided during server creation, so if
+        you are playing on an old server, current path may not work.
+      </div>
+    </div>-->
+		<script>
+			const IMAGE_SIZE = 500
+
+			const canvas = document.getElementById('main-canvas')
+			canvas.width = IMAGE_SIZE
+			canvas.height = IMAGE_SIZE
+			const ctx = canvas.getContext('2d')
+
+			/*offsetUp.addEventListener('click', () => {
+				cycleOffset += 1
+			})*/
+		</script>
+	</body>
+</html>
