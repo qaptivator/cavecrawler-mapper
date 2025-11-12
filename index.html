@@ -197,14 +197,6 @@
 				</svg>
 			</button>
 		</div>
-		<!--<div id="content" class="block text-center">
-      <div class="text-xs pb-3">
-        Every 4 days, the maze changes the path to cavecrawler wood, so with
-        this tool you can find the working map every 4 days.<br />
-        Note: the path to cavecrawler is decided during server creation, so if
-        you are playing on an old server, current path may not work.
-      </div>
-    </div>-->
 		<script>
 			const period = 8
 			const unitModifier = 24 * 60 * 60 * 4 // Period of four days
@@ -245,61 +237,12 @@
 				return unitModifier - (time % unitModifier)
 			}
 
-			/*
-      function getCycle() {
-        let period = 8;
-        let unitModifier = 24 * 60 * 60 * 4; // Period of four days
-        let time = Math.floor(Date.now() / 1000);
-
-        let day = Math.floor((time % (period * unitModifier)) / unitModifier); // Value 0 through (1 - period)
-        return day;
-      }
-      */
-
 			function getCycle() {
 				let time = getTime()
 				return Math.floor((time % (period * unitModifier)) / unitModifier) // Value 0 through (1 - period)
 			}
-
+			
 			function update(cycle) {
-				/*const container = document.querySelector("#container");
-        if (!container) {
-          alert("Unexpected error occured, container not found.");
-          return;
-        }
-
-        const text = document.createElement("div");
-        text.textContent = "Current path to cavecrawler wood:";
-        text.classList.add("pb-3", "text-3xl");
-
-        const image = document.createElement("img");
-        image.classList.add("path-image");*/
-
-				/*let text = document.querySelector("#path-title");
-        if (!text) {
-          text = document.createElement("div");
-          text.classList.add("text-3xl");
-          container.appendChild(text);
-        }
-
-        let countdown = document.querySelector("#path-title");
-        if (!countdown) {
-          countdown = document.createElement("div");
-          countdown.classList.add("pb-3", "text-xl");
-          container.appendChild(countdown);
-        }
-
-        let image = document.querySelector("#path-image");
-        if (!image) {
-          image = document.createElement("img");
-          container.appendChild(image);
-        }*/
-
-				/*if (!text || !countdown || !image) {
-          alert("Unexpected error occured, certain HTML elements not found.");
-          return;
-        }*/
-
 				countdown.textContent = `Refreshes in ${secondsToDhms(
 					timeUntilNextCycle()
 				)}`
@@ -379,10 +322,68 @@
 				update(getCycle())
 				offsetInfo.textContent = cycleOffset
 			}, 1000)
+
+			// archive zone
+						/*
+      function getCycle() {
+        let period = 8;
+        let unitModifier = 24 * 60 * 60 * 4; // Period of four days
+        let time = Math.floor(Date.now() / 1000);
+
+        let day = Math.floor((time % (period * unitModifier)) / unitModifier); // Value 0 through (1 - period)
+        return day;
+      }
+      */
+
+							/*const container = document.querySelector("#container");
+        if (!container) {
+          alert("Unexpected error occured, container not found.");
+          return;
+        }
+
+        const text = document.createElement("div");
+        text.textContent = "Current path to cavecrawler wood:";
+        text.classList.add("pb-3", "text-3xl");
+
+        const image = document.createElement("img");
+        image.classList.add("path-image");*/
+
+				/*let text = document.querySelector("#path-title");
+        if (!text) {
+          text = document.createElement("div");
+          text.classList.add("text-3xl");
+          container.appendChild(text);
+        }
+
+        let countdown = document.querySelector("#path-title");
+        if (!countdown) {
+          countdown = document.createElement("div");
+          countdown.classList.add("pb-3", "text-xl");
+          container.appendChild(countdown);
+        }
+
+        let image = document.querySelector("#path-image");
+        if (!image) {
+          image = document.createElement("img");
+          container.appendChild(image);
+        }*/
+
+				/*if (!text || !countdown || !image) {
+          alert("Unexpected error occured, certain HTML elements not found.");
+          return;
+        }*/
 		</script>
 		<link
 			rel="stylesheet"
 			href="styles.css"
 		/>
+				<!--<div id="content" class="block text-center">
+      <div class="text-xs pb-3">
+        Every 4 days, the maze changes the path to cavecrawler wood, so with
+        this tool you can find the working map every 4 days.<br />
+        Note: the path to cavecrawler is decided during server creation, so if
+        you are playing on an old server, current path may not work.
+      </div>
+    </div>-->
 	</body>
 </html>
