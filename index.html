@@ -29,6 +29,11 @@
 			rel="stylesheet"
 		/>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script
+			data-goatcounter="https://captivator.goatcounter.com/count"
+			async
+			src="//gc.zgo.at/count.js"
+		></script>
 
 		<!-- HTML Meta Tags -->
 		<title>Cavecrawler Mapper</title>
@@ -241,7 +246,7 @@
 				let time = getTime()
 				return Math.floor((time % (period * unitModifier)) / unitModifier) // Value 0 through (1 - period)
 			}
-			
+
 			function update(cycle) {
 				countdown.textContent = `Refreshes in ${secondsToDhms(
 					timeUntilNextCycle()
@@ -324,7 +329,7 @@
 			}, 1000)
 
 			// archive zone
-						/*
+			/*
       function getCycle() {
         let period = 8;
         let unitModifier = 24 * 60 * 60 * 4; // Period of four days
@@ -335,7 +340,7 @@
       }
       */
 
-							/*const container = document.querySelector("#container");
+			/*const container = document.querySelector("#container");
         if (!container) {
           alert("Unexpected error occured, container not found.");
           return;
@@ -348,7 +353,7 @@
         const image = document.createElement("img");
         image.classList.add("path-image");*/
 
-				/*let text = document.querySelector("#path-title");
+			/*let text = document.querySelector("#path-title");
         if (!text) {
           text = document.createElement("div");
           text.classList.add("text-3xl");
@@ -368,7 +373,7 @@
           container.appendChild(image);
         }*/
 
-				/*if (!text || !countdown || !image) {
+			/*if (!text || !countdown || !image) {
           alert("Unexpected error occured, certain HTML elements not found.");
           return;
         }*/
@@ -377,7 +382,7 @@
 			rel="stylesheet"
 			href="styles.css"
 		/>
-				<!--<div id="content" class="block text-center">
+		<!--<div id="content" class="block text-center">
       <div class="text-xs pb-3">
         Every 4 days, the maze changes the path to cavecrawler wood, so with
         this tool you can find the working map every 4 days.<br />
