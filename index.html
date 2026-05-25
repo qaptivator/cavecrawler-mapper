@@ -143,16 +143,7 @@
 			id="path-footer"
 			class="pb-3 text-lg"
 		></h3>
-		<div
-			id="path-image-container"
-			class="relative transition-all duration-300 ease-in-out flex items-center justify-center bg-[#1a1a25] rounded-xl overflow-hidden border border-white/10"
-		>
-			<img
-				id="path-image"
-				class="max-w-none transition-transform duration-300 ease-in-out"
-			/>
-		</div>
-		<div class="flex text-black mt-4 text-xl space-x-2">
+		<div class="flex text-black mb-4 text-xl gap-2">
 			<button
 				id="offset-down"
 				type="button"
@@ -195,6 +186,15 @@
 				</svg>
 			</button>
 		</div>
+		<main
+			id="path-image-container"
+			class="relative transition-all duration-300 ease-in-out flex items-center justify-center bg-[#1a1a25] rounded-xl overflow-hidden border border-white/10"
+		>
+			<img
+				id="path-image"
+				class="max-w-none transition-transform duration-300 ease-in-out"
+			/>
+		</main>
 		<section class="text-sm pb-3 max-w-[600px] mt-4">
 			In Lumber Tycoon 2, there is a
 			<a
@@ -319,8 +319,8 @@
 						break
 					case 5:
 						image.src = 'assets/Path5_Blocked.png'
-						text.textContent =
-							'The Maze is currently closed. You cannot get to cavecrawler wood because all of the doors are blocked. Check again later!'
+						text.innerHTML =
+							'The Maze is currently closed.<br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
 						break
 					case 6:
 						image.src = 'assets/Path6.png'
