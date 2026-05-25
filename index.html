@@ -221,6 +221,7 @@
 			const IMAGE_CONT_HEIGHT = 500
 
 			let cycleOffset = 0
+			let rotateState = 0
 			let text = document.getElementById('path-title')
 			let countdown = document.getElementById('path-footer')
 			let image = document.getElementById('path-image')
@@ -229,6 +230,21 @@
 			let offsetDown = document.getElementById('offset-down')
 			let offsetInfo = document.getElementById('offset-info')
 			let rotateImage = document.getElementById('rotate-image')
+
+			function updateRotateImage() {
+				const angle = rotateState * 90
+				image.style.transform = `rotate(${angle}deg)`
+
+				if (rotateState % 2 === 0) {
+					imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
+					imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
+					imageContainer.style.marginTop = '0px'
+				} else {
+					imageContainer.style.width = IMAGE_CONT_HEIGHT + 'px'
+					imageContainer.style.height = IMAGE_CONT_WIDTH / 2 - 50 + 'px'
+					imageContainer.style.marginTop = IMAGE_CONT_HEIGHT / 4 + 'px'
+				}
+			}
 
 			function secondsToDhms(seconds) {
 				seconds = Number(seconds)
@@ -314,23 +330,19 @@
 				cycleOffset -= 1
 			})
 
+			const savedRotateState = Number(localStorage.getItem('rotateState'))
+			if (savedRotateState) {
+				rotateState = savedRotateState
+			} else {
+				localStorage.setItem('rotateState', rotateState)
+			}
 			imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
 			imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
+			updateRotateImage()
 			rotateImage.addEventListener('click', () => {
-				const angle = image.angle || 0
-				const newAngle = angle === 360 ? 90 : angle + 90
-				image.style.transform = `rotate(${newAngle}deg)`
-				image.angle = newAngle
-
-				if (newAngle % 180 === 0) {
-					imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
-					imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
-					imageContainer.style.marginTop = '0px'
-				} else {
-					imageContainer.style.width = IMAGE_CONT_HEIGHT + 'px'
-					imageContainer.style.height = IMAGE_CONT_WIDTH / 2 + 'px'
-					imageContainer.style.marginTop = IMAGE_CONT_HEIGHT / 4 + 'px'
-				}
+				rotateState = (rotateState + 1) % 4
+				localStorage.setItem('rotateState', rotateState)
+				updateRotateImage()
 			})
 
 			update(getCycle())
