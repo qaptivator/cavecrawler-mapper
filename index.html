@@ -145,12 +145,11 @@
 		></h3>
 		<div
 			id="path-image-container"
-			class="relative w-[800px] h-[500px] overflow-hidden flex items-center justify-center bg-black/20 rounded-lg"
+			class="relative transition-all duration-300 ease-in-out flex items-center justify-center bg-[#1a1a25] rounded-xl overflow-hidden border border-white/10"
 		>
 			<img
 				id="path-image"
-				src=""
-				class="max-w-full max-h-full object-contain transition-transform duration-300"
+				class="max-w-none transition-transform duration-300 ease-in-out"
 			/>
 		</div>
 		<div class="flex text-black mt-4 text-xl space-x-2">
@@ -222,7 +221,7 @@
 			const IMAGE_CONT_HEIGHT = 500
 
 			let cycleOffset = 0
-			let rotateState = 0
+			let rotateState = 1
 			let text = document.getElementById('path-title')
 			let countdown = document.getElementById('path-footer')
 			let image = document.getElementById('path-image')
@@ -237,15 +236,25 @@
 				const angle = rotateState * 90
 
 				if (isVertical) {
-					const scale = IMAGE_CONT_HEIGHT / IMAGE_CONT_WIDTH
-					image.style.transform = `rotate(${angle}deg) scale(${scale})`
+					// 1. Flip the container to be tall
+					imageContainer.style.width = IMAGE_CONT_HEIGHT + 'px'
+					imageContainer.style.height = IMAGE_CONT_WIDTH + 'px'
+
+					// 2. IMPORTANT: Force the image's base dimensions to flip
+					// so it doesn't clip against the container walls
+					image.style.width = IMAGE_CONT_WIDTH + 'px'
+					image.style.height = IMAGE_CONT_HEIGHT + 'px'
 				} else {
-					image.style.transform = `rotate(${angle}deg) scale(1)`
+					// 1. Return container to wide
+					imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
+					imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
+
+					// 2. Return image to wide
+					image.style.width = IMAGE_CONT_WIDTH + 'px'
+					image.style.height = IMAGE_CONT_HEIGHT + 'px'
 				}
 
-				imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
-				imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
-				imageContainer.style.marginTop = '0px'
+				image.style.transform = `rotate(${angle}deg)`
 			}
 
 			function secondsToDhms(seconds) {
