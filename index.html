@@ -278,7 +278,7 @@
 		</main>
 
 		<!-- Information Footer Section -->
-		<section class="text-sm pb-3 max-w-[600px] my-4">
+		<section class="text-sm max-w-[600px] mt-4">
 			In Lumber Tycoon 2, there is a
 			<a
 				href="https://lumber-tycoon-2.fandom.com/wiki/Maze"
@@ -298,6 +298,13 @@
 			below, you can view the previous paths. The path refreshes every 4 days. A
 			"cycle" is the 4 day period in which the maze changes.
 		</section>
+
+		<!-- Settings -->
+
+		<!-- Copyright Footer -->
+		<footer class="w-full text-center text-gray-800 italic py-4">
+			© 2024-<span id="current-year"></span> captivator, MIT license
+		</footer>
 
 		<script>
 			const period = 8
@@ -475,6 +482,8 @@
 						return
 				}
 			}
+
+			$('#current-year').innerHTML = new Date().getFullYear()
 
 			offsetUp.on('click', () => {
 				cycleOffset += 1
