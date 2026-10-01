@@ -269,9 +269,35 @@
 				this.addEventListener(v, h)
 				return this
 			}
+			function createStore(prefix = 'cavecrawler_') {
+				return new Proxy(
+					{},
+					{
+						get(target, prop) {
+							const item = localStorage.getItem(prefix + String(prop))
+							if (item === null) return undefined
+							try {
+								return JSON.parse(item)
+							} catch {
+								return item
+							}
+						},
+						set(target, prop, value) {
+							localStorage.setItem(prefix + String(prop), JSON.stringify(value))
+							return true
+						},
+						deleteProperty(target, prop) {
+							localStorage.removeItem(prefix + String(prop))
+							return true
+						},
+					}
+				)
+			}
+
+			const store = createStore()
+			if (store.rotateState === undefined) store.rotateState = 1
 
 			let cycleOffset = 0
-			let rotateState = 1
 			const text = $('#path-title')
 			const countdown = $('#path-footer')
 			const image = $('#path-image')
@@ -282,8 +308,8 @@
 			const rotateImage = $('#rotate-image')
 
 			function updateRotateImage() {
-				const isVertical = rotateState % 2 !== 0
-				const angle = rotateState * 90
+				const isVertical = store.rotateState % 2 !== 0
+				const angle = store.rotateState * 90
 
 				if (isVertical) {
 					// 1. Flip the container to be tall
@@ -391,18 +417,12 @@
 				cycleOffset -= 1
 			})
 
-			const savedRotateState = Number(localStorage.getItem('rotateState'))
-			if (savedRotateState) {
-				rotateState = savedRotateState
-			} else {
-				localStorage.setItem('rotateState', rotateState)
-			}
+			// app start
 			imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
 			imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
 			updateRotateImage()
-			rotateImage.on('click', () => {
-				rotateState = (rotateState + 1) % 4
-				localStorage.setItem('rotateState', rotateState)
+			rotateImage.addEventListener('click', () => {
+				store.rotateState = (store.rotateState + 1) % 4
 				updateRotateImage()
 			})
 
