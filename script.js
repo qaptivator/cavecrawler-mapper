@@ -117,7 +117,7 @@ function updatePath() {
 
 	if (cycle === 5) {
 		text.innerHTML =
-			'The Maze is <span class="text-contrast">currently closed.</span><br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
+			'The Maze is <span class="text-contrast">currently closed.</span><br>You cannot get to cavecrawler wood,<br>because all of the doors are blocked.<br>Check again later!'
 	} else {
 		text.innerHTML = 'Current path to cavecrawler wood:'
 	}
