@@ -9,6 +9,8 @@
 	--bg-button: #242432; /* Control buttons background */
 	--text-main: #ffffff; /* Primary text color */
 	--text-sub: #a1a1aa; /* Muted/secondary text color */
+	--text-contrast: #102adc;
+	--text-contrast-hover: #1635ff;
 	--border: rgba(255, 255, 255, 0.12); /* Standard border color */
 }
 
