@@ -384,6 +384,11 @@
 			function updatePath() {
 				const cycle = getCycle()
 				offsetInfo.textContent = cycleOffset
+				if (cycleOffset >= 0) {
+					offsetUp.classList.add('hidden')
+				} else {
+					offsetUp.classList.remove('hidden')
+				}
 
 				if (cycle === 5) {
 					text.innerHTML =
@@ -430,7 +435,6 @@
 					case 5:
 						image.src = 'assets/Path5_Blocked.png'
 						video.classList.add('hidden')
-
 						break
 					case 6:
 						image.src = 'assets/Path6.png'
