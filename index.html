@@ -6,15 +6,24 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
+		<title>Cavecrawler Mapper</title>
+		<meta
+			name="description"
+			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
+		/>
+
+		<!-- Favicon & Styles -->
 		<link
 			rel="icon"
 			href="favicon.ico"
 			type="image/x-icon"
 		/>
-		<!--<link
+		<link
 			rel="stylesheet"
 			href="styles.css"
-		/>-->
+		/>
+
+		<!-- Fonts -->
 		<link
 			rel="preconnect"
 			href="https://fonts.googleapis.com"
@@ -25,9 +34,11 @@
 			crossorigin
 		/>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Tailwind & Analytics -->
 		<script src="https://cdn.tailwindcss.com"></script>
 		<script
 			data-goatcounter="https://captivator.goatcounter.com/count"
@@ -35,14 +46,7 @@
 			src="//gc.zgo.at/count.js"
 		></script>
 
-		<!-- HTML Meta Tags -->
-		<title>Cavecrawler Mapper</title>
-		<meta
-			name="description"
-			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
-		/>
-
-		<!-- Facebook Meta Tags -->
+		<!-- Open Graph / Facebook -->
 		<meta
 			property="og:url"
 			content="https://qaptivator.github.io/cavecrawler-mapper/"
@@ -57,14 +61,14 @@
 		/>
 		<meta
 			property="og:description"
-			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
+			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze."
 		/>
 		<meta
 			property="og:image"
 			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
 		/>
 
-		<!-- Twitter Meta Tags -->
+		<!-- Twitter -->
 		<meta
 			name="twitter:card"
 			content="summary_large_image"
@@ -83,7 +87,7 @@
 		/>
 		<meta
 			name="twitter:description"
-			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze. Made by captivator and fizzy for Lumber Tycoon 2 players with love ❤️"
+			content="Shows the currently working path to cavecrawler wood in the Lumber Tycoon 2 maze."
 		/>
 		<meta
 			name="twitter:image"
@@ -94,6 +98,7 @@
 		id="container"
 		class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
 	>
+		<!-- Header Section -->
 		<header class="flex w-fit pt-5 text-left">
 			<img
 				src="assets/icon.png"
@@ -101,7 +106,7 @@
 			/>
 			<div class="block">
 				<h1 class="font-bold text-3xl">Cavecrawler Mapper</h1>
-				<footer class="text-base">
+				<p class="text-base">
 					Made by captivator and fizzy<br />
 					for
 					<a
@@ -116,13 +121,17 @@
 						target="_blank"
 						>GitHub Pages</a
 					>
-				</footer>
+				</p>
 			</div>
 		</header>
+
+		<!-- Navigation -->
 		<nav class="pb-2 text-sm opacity-50">
 			Other pages include:
 			<a href="/cavecrawler-mapper/modern">Modern Painting Generator</a>
 		</nav>
+
+		<!-- Call to Actions -->
 		<section class="pb-10 text-xl font-bold italic flex flex-col">
 			<span>
 				Join our
@@ -149,6 +158,8 @@
 				/>
 			</span>
 		</section>
+
+		<!-- Dynamic Path Header & Timer -->
 		<h2
 			id="path-title"
 			class="text-3xl"
@@ -157,6 +168,8 @@
 			id="path-footer"
 			class="pb-3 text-lg"
 		></h3>
+
+		<!-- Controls -->
 		<div class="flex text-black text-xl gap-2">
 			<button
 				id="offset-down"
@@ -200,9 +213,13 @@
 				</svg>
 			</button>
 		</div>
-		<div class="text-sm my-2">
+
+		<!-- Footnote -->
+		<div class="text-sm text-gray-400 my-2">
 			If the map is wrong, click <b>&lt;</b> to see older maps.
 		</div>
+
+		<!-- Map Image Display -->
 		<main
 			id="path-image-container"
 			class="relative transition-all duration-300 ease-in-out flex items-center justify-center bg-[#1a1a25] rounded-xl overflow-hidden border border-white/10"
@@ -212,6 +229,8 @@
 				class="max-w-none transition-transform duration-300 ease-in-out"
 			/>
 		</main>
+
+		<!-- Information Footer Section -->
 		<section class="text-sm pb-3 max-w-[600px] my-4">
 			In Lumber Tycoon 2, there is a
 			<a
@@ -231,6 +250,7 @@
 			below, you can view the previous paths. The path refreshes every 4 days. A
 			"cycle" is the 4 day period in which the maze changes.
 		</section>
+
 		<script>
 			const period = 8
 			const unitModifier = 24 * 60 * 60 * 4 // Period of four days
