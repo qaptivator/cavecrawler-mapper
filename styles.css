@@ -3,6 +3,10 @@
 	font-weight: 400;
 	font-style: normal;
 }
+.hidden {
+	display: hidden;
+	/* i know this is defined in tailwindcss, but this class is very crucial for the video guide div */
+}
 a {
 	color: white;
 	text-decoration: underline;
