@@ -46,7 +46,7 @@
 			src="//gc.zgo.at/count.js"
 		></script>
 
-		<!-- Open Graph / Facebook -->
+		<!-- Open Graph / Twitter Meta Tags -->
 		<meta
 			property="og:url"
 			content="https://qaptivator.github.io/cavecrawler-mapper/"
@@ -67,8 +67,6 @@
 			property="og:image"
 			content="https://qaptivator.github.io/cavecrawler-mapper/assets/banner.png"
 		/>
-
-		<!-- Twitter -->
 		<meta
 			name="twitter:card"
 			content="summary_large_image"
@@ -96,17 +94,18 @@
 	</head>
 	<body
 		id="container"
-		class="flex flex-col items-center roboto-regular text-white bg-[#13131b] text-center"
+		class="flex flex-col items-center roboto-regular text-center min-h-screen bg-main text-main transition-colors duration-300"
 	>
 		<!-- Header Section -->
 		<header class="flex w-fit pt-5 text-left">
 			<img
 				src="assets/icon.png"
 				class="w-[100px] h-[100px] mr-5"
+				alt="App Icon"
 			/>
 			<div class="block">
 				<h1 class="font-bold text-3xl">Cavecrawler Mapper</h1>
-				<p class="text-base">
+				<p class="text-base text-sub">
 					Made by captivator and fizzy<br />
 					for
 					<a
@@ -128,7 +127,7 @@
 		</header>
 
 		<!-- Navigation -->
-		<nav class="pb-2 text-sm opacity-50">
+		<nav class="pb-2 text-sm text-sub">
 			Other pages include:
 			<a href="/cavecrawler-mapper/modern">Modern Painting Generator</a>
 		</nav>
@@ -146,6 +145,7 @@
 				<img
 					src="assets/discord_logo.svg"
 					class="inline w-6 h-6 ml-1"
+					alt="Discord"
 				/>
 			</span>
 			<span>
@@ -159,6 +159,7 @@
 				<img
 					src="assets/monobank_logo.png"
 					class="inline w-6 h-6 ml-1"
+					alt="Monobank"
 				/>
 			</span>
 		</section>
@@ -166,19 +167,20 @@
 		<!-- Dynamic Path Header & Timer -->
 		<h2
 			id="path-title"
-			class="text-3xl"
+			class="text-3xl font-medium"
 		></h2>
 		<h3
 			id="path-footer"
-			class="pb-3 text-lg"
+			class="pb-3 text-lg text-sub"
 		></h3>
 
 		<!-- Controls -->
-		<div class="flex text-black text-xl gap-2">
+		<div class="flex text-xl gap-2">
 			<button
 				id="offset-down"
 				type="button"
-				class="order-1 p-2 bg-white rounded-lg w-10 h-10"
+				class="btn-control"
+				title="Previous Cycle"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -198,14 +200,16 @@
 
 			<div
 				id="offset-info"
-				class="order-2 p-2 text-center text-white"
+				class="p-2 text-center flex items-center justify-center font-bold min-w-[2rem]"
 			>
 				0
 			</div>
+
 			<button
 				id="offset-up"
 				type="button"
-				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
+				class="btn-control"
+				title="Next Cycle"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -222,10 +226,12 @@
 					/>
 				</svg>
 			</button>
+
 			<button
 				id="rotate-image"
 				type="button"
-				class="order-3 p-2 bg-white rounded-lg w-10 h-10"
+				class="btn-control"
+				title="Rotate Map"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -245,9 +251,9 @@
 		</div>
 
 		<!-- Footnote -->
-		<div class="text-sm text-gray-400 my-2">
+		<div class="text-sm text-sub my-2">
 			If the map is wrong, click <b>&lt;</b> to see older maps.<br />
-			<div class="text-xs text-gray-700">
+			<div class="text-xs opacity-75">
 				Credits to ElectroTechnologies for the video guide.
 			</div>
 		</div>
@@ -257,340 +263,80 @@
 			id="path-video"
 			width="560"
 			height="315"
-			class="mb-3"
+			class="mb-3 rounded-lg border border-theme"
 			title="Cavecrawler Mapper Path Guide"
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			referrerpolicy="strict-origin-when-cross-origin"
 			allowfullscreen
-		>
-		</iframe>
+		></iframe>
 
 		<!-- Map Image Display -->
 		<main
 			id="path-image-container"
-			class="relative transition-all duration-300 ease-in-out flex items-center justify-center bg-[#1a1a25] rounded-xl overflow-hidden border border-white/10"
+			class="relative transition-all duration-300 ease-in-out flex items-center justify-center bg-card rounded-xl overflow-hidden border border-theme"
 		>
 			<img
 				id="path-image"
 				class="max-w-none transition-transform duration-300 ease-in-out"
+				alt="Map Path"
 			/>
 		</main>
 
-		<!-- Information Footer Section -->
-		<section class="text-sm max-w-[600px] mt-4">
+		<!-- Information Section -->
+		<section class="text-sm max-w-[600px] mt-4 text-sub leading-relaxed">
 			In Lumber Tycoon 2, there is a
 			<a
 				href="https://lumber-tycoon-2.fandom.com/wiki/Maze"
 				rel="noopener"
 				target="_blank"
-				>large undeground maze</a
+				>large underground maze</a
 			>
 			located under the Tropics biome. If you complete the maze, you can get to
 			the cavecrawler wood. Every 4 days, the maze changes the path to
-			cavecrawler wood, so it seems that the maze is unique each time.<br />
-			<b
-				>With this tool you can find the working path, leading to cavecrawler
+			cavecrawler wood.<br />
+			<b class="text-main"
+				>With this tool you can find the working path leading to cavecrawler
 				wood.</b
 			><br />
-			Note: the path to cavecrawler is decided during server creation, so if you
-			are playing on an old server, current path may not work. Using the buttons
-			below, you can view the previous paths. The path refreshes every 4 days. A
-			"cycle" is the 4 day period in which the maze changes.
+			Note: The path is decided during server creation. On older servers, the
+			current path may not work—use the arrow buttons above to view previous
+			paths.
 		</section>
 
-		<!-- Settings -->
-		<div class="flex gap-2 mt-4">
-			<label class="text-sm">
+		<!-- Settings Bar -->
+		<div class="flex gap-4 mt-6 text-sm">
+			<label class="flex items-center gap-1.5 cursor-pointer">
 				<input
 					id="settings-showfuture"
 					type="checkbox"
+					class="accent-theme"
 				/>
 				Show the Future™
 			</label>
-			<label class="text-sm">
+			<label class="flex items-center gap-1.5 cursor-pointer">
 				<input
 					id="settings-hidevideo"
 					type="checkbox"
+					class="accent-theme"
 				/>
 				Hide the Video
 			</label>
-			<label class="text-sm">
+			<label class="flex items-center gap-1.5 cursor-pointer">
 				<input
 					id="settings-seasonaltheme"
 					type="checkbox"
+					class="accent-theme"
 				/>
 				Seasonal Theme
 			</label>
 		</div>
 
-		<!-- Copyright Footer -->
-		<footer class="w-full text-center text-gray-800 italic mt-1 mb-4">
-			© 2024-<span id="current-year"></span> captivator, MIT license
+		<!-- Footer -->
+		<footer class="w-full text-center text-xs text-sub italic mt-auto py-6">
+			© 2024–<span id="current-year"></span> captivator, MIT license
 		</footer>
 
-		<script>
-			const period = 8
-			const unitModifier = 24 * 60 * 60 * 4
-			const IMAGE_CONT_WIDTH = 720
-			const IMAGE_CONT_HEIGHT = 400
-
-			const $ = document.querySelector.bind(document)
-			const $$ = document.querySelectorAll.bind(document)
-			Element.prototype.on = function (v, h) {
-				this.addEventListener(v, h)
-				return this
-			}
-			function createStore(prefix = 'cavecrawler_') {
-				return new Proxy(
-					{},
-					{
-						get(target, prop) {
-							const item = localStorage.getItem(prefix + String(prop))
-							if (item === null) return undefined
-							try {
-								return JSON.parse(item)
-							} catch {
-								return item
-							}
-						},
-						set(target, prop, value) {
-							localStorage.setItem(prefix + String(prop), JSON.stringify(value))
-							return true
-						},
-						deleteProperty(target, prop) {
-							localStorage.removeItem(prefix + String(prop))
-							return true
-						},
-					}
-				)
-			}
-
-			const store = createStore()
-			if (store.rotateState === undefined) store.rotateState = 1
-			if (store.showFuture === undefined) store.showFuture = false
-			if (store.hideVideo === undefined) store.hideVideo = false
-			if (store.seasonalTheme === undefined) store.seasonalTheme = true
-
-			let cycleOffset = 0
-			let currentCycle = -1
-			const text = $('#path-title')
-			const countdown = $('#path-footer')
-			const image = $('#path-image')
-			const imageContainer = $('#path-image-container')
-			const video = $('#path-video')
-			const offsetUp = $('#offset-up')
-			const offsetDown = $('#offset-down')
-			const offsetInfo = $('#offset-info')
-			const rotateImage = $('#rotate-image')
-			const showFutureCheckbox = $('#settings-showfuture')
-			const hideVideoCheckbox = $('#settings-hidevideo')
-			const seasonalThemeCheckbox = $('#settings-seasonaltheme')
-
-			function updateRotateImage() {
-				const isVertical = store.rotateState % 2 !== 0
-				const angle = store.rotateState * 90
-
-				if (isVertical) {
-					imageContainer.style.width = IMAGE_CONT_HEIGHT + 'px'
-					imageContainer.style.height = IMAGE_CONT_WIDTH + 'px'
-
-					image.style.width = IMAGE_CONT_WIDTH + 'px'
-					image.style.height = IMAGE_CONT_HEIGHT + 'px'
-				} else {
-					imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
-					imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
-
-					image.style.width = IMAGE_CONT_WIDTH + 'px'
-					image.style.height = IMAGE_CONT_HEIGHT + 'px'
-				}
-
-				image.style.transform = `rotate(${angle}deg)`
-			}
-
-			function secondsToDhms(seconds) {
-				seconds = Number(seconds)
-				const d = Math.floor(seconds / (3600 * 24))
-				const h = Math.floor((seconds % (3600 * 24)) / 3600)
-				const m = Math.floor((seconds % 3600) / 60)
-				const s = Math.floor(seconds % 60)
-				const dDisplay = d > 0 ? d + (d == 1 ? ' day' : ' days') : ''
-				const hDisplay = h > 0 ? h + (h == 1 ? ' hour' : ' hours') : ''
-				const mDisplay = m > 0 ? m + (m == 1 ? ' minute' : ' minutes') : ''
-				const sDisplay = s > 0 ? s + (s == 1 ? ' second' : ' seconds') : ''
-				const unfiltered = [dDisplay, hDisplay, mDisplay, sDisplay]
-				const filtered = unfiltered.filter((v) => v != null && v != '')
-				return filtered.join(', ')
-			}
-
-			function getTime() {
-				return Math.floor(Date.now() / 1000) + cycleOffset * unitModifier
-			}
-
-			function timeUntilNextCycle() {
-				let time = getTime()
-				return unitModifier - (time % unitModifier)
-			}
-
-			function getCycle() {
-				let time = getTime()
-				return Math.floor((time % (period * unitModifier)) / unitModifier)
-			}
-
-			function updateTimer() {
-				countdown.textContent = `Refreshes in ${secondsToDhms(
-					timeUntilNextCycle()
-				)}`
-			}
-
-			function updatePath() {
-				applyShowFutureSetting()
-
-				const cycle = getCycle()
-				offsetInfo.textContent = cycleOffset
-
-				if (cycle === 5) {
-					text.innerHTML =
-						'The Maze is currently closed.<br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
-				} else {
-					text.textContent = 'Current path to cavecrawler wood:'
-				}
-
-				if (cycleOffset > 0) {
-					text.textContent = `Path to cavecrawler wood ${Math.abs(
-						cycleOffset * 4
-					)} days from now:`
-				}
-				if (cycleOffset < 0) {
-					text.textContent = `Path to cavecrawler wood ${Math.abs(
-						cycleOffset * 4
-					)} days ago:`
-				}
-
-				applyHideVideoSetting(cycle)
-
-				if (cycle === currentCycle) return
-				currentCycle = cycle
-
-				switch (cycle) {
-					case 0:
-						image.src = 'assets/Path0.png'
-						video.src = 'https://www.youtube.com/embed/P8m3efuHMho'
-						break
-					case 1:
-						image.src = 'assets/Path1.png'
-						video.src = 'https://www.youtube.com/embed/l7qKew_Or6M'
-						break
-					case 2:
-						image.src = 'assets/Path2.png'
-						video.src = 'https://www.youtube.com/embed/DuB4s7N9X8w'
-						break
-					case 3:
-						image.src = 'assets/Path3.png'
-						video.src = 'https://www.youtube.com/embed/orMRs5U2zlY'
-						break
-					case 4:
-						image.src = 'assets/Path4.png'
-						video.src = 'https://www.youtube.com/embed/fly1fR4HlS4'
-						break
-					case 5:
-						image.src = 'assets/Path5_Blocked.png'
-						break
-					case 6:
-						image.src = 'assets/Path6.png'
-						video.src = 'https://www.youtube.com/embed/XEda9jvCZI4'
-						break
-					case 7:
-						image.src = 'assets/Path7.png'
-						video.src = 'https://www.youtube.com/embed/t8oRKTtcJwk'
-						break
-					default:
-						alert('Unexpected error occurred, maze cycle not found.')
-						return
-				}
-			}
-
-			function applyShowFutureSetting() {
-				showFutureCheckbox.checked = store.showFuture
-
-				if (!store.showFuture && cycleOffset >= 0) {
-					cycleOffset = 0
-					offsetUp.classList.add('hidden')
-				} else {
-					offsetUp.classList.remove('hidden')
-				}
-			}
-
-			function applyHideVideoSetting(cycle = getCycle()) {
-				hideVideoCheckbox.checked = store.hideVideo
-
-				if (store.hideVideo || cycle === 5) {
-					video.classList.add('hidden')
-				} else {
-					video.classList.remove('hidden')
-				}
-			}
-
-			function applySeasonalThemeSetting() {
-				seasonalThemeCheckbox.checked = store.seasonalTheme
-
-				if (store.seasonalTheme) {
-					document.body.classList.add('seasonal-theme')
-				} else {
-					document.body.classList.remove('seasonal-theme')
-				}
-			}
-
-			offsetUp.on('click', () => {
-				if (!store.showFuture && cycleOffset >= 0) return
-				cycleOffset += 1
-				updatePath()
-				updateTimer()
-			})
-
-			offsetDown.on('click', () => {
-				cycleOffset -= 1
-				updatePath()
-				updateTimer()
-			})
-
-			showFutureCheckbox.on('change', (e) => {
-				store.showFuture = e.target.checked
-				updatePath()
-				updateTimer()
-			})
-
-			hideVideoCheckbox.on('change', (e) => {
-				store.hideVideo = e.target.checked
-				applyHideVideoSetting()
-			})
-
-			seasonalThemeCheckbox.on('change', (e) => {
-				store.seasonalTheme = e.target.checked
-				applySeasonalThemeSetting()
-			})
-
-			// App Start Initialization
-			const yearEl = $('#current-year')
-			if (yearEl) yearEl.innerHTML = new Date().getFullYear()
-
-			imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
-			imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
-			updateRotateImage()
-
-			rotateImage.on('click', () => {
-				store.rotateState = (store.rotateState + 1) % 4
-				updateRotateImage()
-			})
-
-			applySeasonalThemeSetting()
-			updatePath()
-			updateTimer()
-
-			setInterval(() => {
-				updateTimer()
-				updatePath()
-			}, 1000)
-		</script>
+		<script src="script.js"></script>
 	</body>
 </html>

@@ -1,14 +1,97 @@
+/* ==========================================================================
+   THEME VARIABLES
+   Adding a new theme only requires overriding these 6 CSS properties!
+   ========================================================================== */
+
+:root {
+	--bg-main: #13131b; /* Main page background */
+	--bg-card: #1a1a25; /* Container & card background */
+	--bg-button: #242432; /* Control buttons background */
+	--text-main: #ffffff; /* Primary text color */
+	--text-sub: #a1a1aa; /* Muted/secondary text color */
+	--border: rgba(255, 255, 255, 0.12); /* Standard border color */
+}
+
+/* Example Seasonal Theme (Green Forest Override) */
+body.seasonal-theme {
+	--bg-main: #0f1a14;
+	--bg-card: #16261d;
+	--bg-button: #20382b;
+	--text-main: #f0fdf4;
+	--text-sub: #86efac;
+	--border: rgba(134, 239, 172, 0.2);
+}
+
+/* Example Additional Theme (Easy to copy-paste new themes like this!)
+body.cyberpunk-theme {
+    --bg-main: #0d0914;
+    --bg-card: #1a102f;
+    --bg-button: #2b184e;
+    --text-main: #00f0ff;
+    --text-sub: #ff007f;
+    --border: rgba(0, 240, 255, 0.3);
+}
+*/
+
+/* ==========================================================================
+   CORE UTILITY STYLES
+   ========================================================================== */
+
 .roboto-regular {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
-	font-style: normal;
 }
+
+/* Fixed display property */
 .hidden {
-	display: hidden;
-	/* i know this is defined in tailwindcss, but this class is very crucial for the video guide div */
+	display: none !important;
 }
+
+/* Semantic utility classes map to theme variables */
+.bg-main {
+	background-color: var(--bg-main);
+}
+.bg-card {
+	background-color: var(--bg-card);
+}
+.text-main {
+	color: var(--text-main);
+}
+.text-sub {
+	color: var(--text-sub);
+}
+.border-theme {
+	border-color: var(--border);
+}
+.accent-theme {
+	accent-color: var(--text-main);
+}
+
 a {
-	color: white;
+	color: var(--text-main);
 	text-decoration: underline;
 	text-underline-offset: 2px;
+}
+
+.btn-control {
+	padding: 0.5rem;
+	background-color: var(--bg-button);
+	color: var(--text-main);
+	border: 1px solid var(--border);
+	border-radius: 0.5rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-control:hover:not(:disabled) {
+	filter: brightness(1.25);
+}
+
+.btn-control:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
 }
