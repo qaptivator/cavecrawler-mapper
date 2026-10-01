@@ -301,27 +301,27 @@
 
 		<!-- Settings -->
 		<div class="flex gap-2 mt-4">
-			<div class="text-sm">
+			<label class="text-sm">
 				<input
 					id="settings-showfuture"
 					type="checkbox"
 				/>
 				Show the Future™
-			</div>
-			<div class="text-sm">
+			</label>
+			<label class="text-sm">
 				<input
 					id="settings-hidevideo"
 					type="checkbox"
 				/>
 				Hide the Video
-			</div>
-			<div class="text-sm">
+			</label>
+			<label class="text-sm">
 				<input
 					id="settings-seasonaltheme"
 					type="checkbox"
 				/>
 				Seasonal Theme
-			</div>
+			</label>
 		</div>
 
 		<!-- Copyright Footer -->
@@ -368,6 +368,9 @@
 
 			const store = createStore()
 			if (store.rotateState === undefined) store.rotateState = 1
+			if (store.showFuture === undefined) store.showFuture = false
+			if (store.hideVideo === undefined) store.hideVideo = false
+			if (store.seasonalTheme === undefined) store.seasonalTheme = true
 
 			let cycleOffset = 0
 			let currentCycle = -1
@@ -380,6 +383,9 @@
 			const offsetDown = $('#offset-down')
 			const offsetInfo = $('#offset-info')
 			const rotateImage = $('#rotate-image')
+			const showFutureCheckbox = $('#settings-showfuture')
+			const hideVideoCheckbox = $('#settings-hidevideo')
+			const seasonalThemeCheckbox = $('#settings-seasonaltheme')
 
 			function updateRotateImage() {
 				const isVertical = store.rotateState % 2 !== 0
@@ -438,13 +444,10 @@
 			}
 
 			function updatePath() {
+				applyShowFutureSetting()
+
 				const cycle = getCycle()
 				offsetInfo.textContent = cycleOffset
-				if (cycleOffset >= 0) {
-					offsetUp.classList.add('hidden')
-				} else {
-					offsetUp.classList.remove('hidden')
-				}
 
 				if (cycle === 5) {
 					text.innerHTML =
@@ -452,6 +455,7 @@
 				} else {
 					text.textContent = 'Current path to cavecrawler wood:'
 				}
+
 				if (cycleOffset > 0) {
 					text.textContent = `Path to cavecrawler wood ${Math.abs(
 						cycleOffset * 4
@@ -463,10 +467,11 @@
 					)} days ago:`
 				}
 
+				applyHideVideoSetting(cycle)
+
 				if (cycle === currentCycle) return
 				currentCycle = cycle
 
-				video.classList.remove('hidden')
 				switch (cycle) {
 					case 0:
 						image.src = 'assets/Path0.png'
@@ -490,7 +495,6 @@
 						break
 					case 5:
 						image.src = 'assets/Path5_Blocked.png'
-						video.classList.add('hidden')
 						break
 					case 6:
 						image.src = 'assets/Path6.png'
@@ -501,35 +505,88 @@
 						video.src = 'https://www.youtube.com/embed/t8oRKTtcJwk'
 						break
 					default:
-						alert('Unexpected error occured, maze cycle not found.')
+						alert('Unexpected error occurred, maze cycle not found.')
 						return
 				}
 			}
 
-			$('#current-year').innerHTML = new Date().getFullYear()
+			function applyShowFutureSetting() {
+				showFutureCheckbox.checked = store.showFuture
+
+				if (!store.showFuture && cycleOffset >= 0) {
+					cycleOffset = 0
+					offsetUp.classList.add('hidden')
+				} else {
+					offsetUp.classList.remove('hidden')
+				}
+			}
+
+			function applyHideVideoSetting(cycle = getCycle()) {
+				hideVideoCheckbox.checked = store.hideVideo
+
+				if (store.hideVideo || cycle === 5) {
+					video.classList.add('hidden')
+				} else {
+					video.classList.remove('hidden')
+				}
+			}
+
+			function applySeasonalThemeSetting() {
+				seasonalThemeCheckbox.checked = store.seasonalTheme
+
+				if (store.seasonalTheme) {
+					document.body.classList.add('seasonal-theme')
+				} else {
+					document.body.classList.remove('seasonal-theme')
+				}
+			}
 
 			offsetUp.on('click', () => {
+				if (!store.showFuture && cycleOffset >= 0) return
 				cycleOffset += 1
 				updatePath()
 				updateTimer()
 			})
+
 			offsetDown.on('click', () => {
 				cycleOffset -= 1
 				updatePath()
 				updateTimer()
 			})
 
-			// app start
+			showFutureCheckbox.on('change', (e) => {
+				store.showFuture = e.target.checked
+				updatePath()
+				updateTimer()
+			})
+
+			hideVideoCheckbox.on('change', (e) => {
+				store.hideVideo = e.target.checked
+				applyHideVideoSetting()
+			})
+
+			seasonalThemeCheckbox.on('change', (e) => {
+				store.seasonalTheme = e.target.checked
+				applySeasonalThemeSetting()
+			})
+
+			// App Start Initialization
+			const yearEl = $('#current-year')
+			if (yearEl) yearEl.innerHTML = new Date().getFullYear()
+
 			imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
 			imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
 			updateRotateImage()
-			rotateImage.addEventListener('click', () => {
+
+			rotateImage.on('click', () => {
 				store.rotateState = (store.rotateState + 1) % 4
 				updateRotateImage()
 			})
 
+			applySeasonalThemeSetting()
 			updatePath()
 			updateTimer()
+
 			setInterval(() => {
 				updateTimer()
 				updatePath()
