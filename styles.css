@@ -13,13 +13,38 @@
 }
 
 /* Example Seasonal Theme (Green Forest Override) */
-body.seasonal-theme {
+/*body.seasonal-theme {
 	--bg-main: #0f1a14;
 	--bg-card: #16261d;
 	--bg-button: #20382b;
 	--text-main: #f0fdf4;
 	--text-sub: #86efac;
 	--border: rgba(134, 239, 172, 0.2);
+}*/
+
+body.seasonal-theme {
+	--bg-main: #12100e;
+	--bg-card: #1a1512;
+	--bg-button: #261f1a;
+	--text-main: #e2dacd;
+	--text-sub: #a38c70;
+	--border: rgba(170, 85, 0, 0.25);
+}
+
+body.seasonal-theme a {
+	color: #f77f00;
+	text-underline-offset: 3px;
+	text-shadow: 0 0 6px rgba(247, 127, 0, 0.3);
+}
+
+body.seasonal-theme a:hover {
+	color: #ffa033;
+}
+
+body.seasonal-theme .btn-control:hover:not(:disabled) {
+	background-color: #332820;
+	border-color: rgba(247, 127, 0, 0.5);
+	color: #f77f00;
 }
 
 /* Example Additional Theme (Easy to copy-paste new themes like this!)
