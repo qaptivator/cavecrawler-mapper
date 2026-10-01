@@ -28,23 +28,25 @@ body.seasonal-theme {
 	--bg-button: #261f1a;
 	--text-main: #e2dacd;
 	--text-sub: #a38c70;
+	--text-contrast: #f77f00;
+	--text-contrast-hover: #ffa033;
 	--border: rgba(170, 85, 0, 0.25);
 }
 
 body.seasonal-theme a {
-	color: #f77f00;
+	color: var(--text-contrast);
 	text-underline-offset: 3px;
 	text-shadow: 0 0 6px rgba(247, 127, 0, 0.3);
 }
 
 body.seasonal-theme a:hover {
-	color: #ffa033;
+	color: var(--text-contrast-hover);
 }
 
 body.seasonal-theme .btn-control:hover:not(:disabled) {
 	background-color: #332820;
 	border-color: rgba(247, 127, 0, 0.5);
-	color: #f77f00;
+	color: var(--text-contrast);
 }
 
 /* Example Additional Theme (Easy to copy-paste new themes like this!)
@@ -84,6 +86,9 @@ body.cyberpunk-theme {
 }
 .text-sub {
 	color: var(--text-sub);
+}
+.text-contrast {
+	color: var(--text-contrast);
 }
 .border-theme {
 	border-color: var(--border);
