@@ -117,20 +117,20 @@ function updatePath() {
 
 	if (cycle === 5) {
 		text.innerHTML =
-			'The Maze is currently closed.<br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
+			'The Maze is <span class="text-contrast">currently closed.</span><br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
 	} else {
-		text.textContent = 'Current path to cavecrawler wood:'
+		text.innerHTML = 'Current path to cavecrawler wood:'
 	}
 
 	if (cycleOffset > 0) {
-		text.textContent = `Path to cavecrawler wood ${Math.abs(
+		text.innerHTML = `Path to cavecrawler wood <span class="text-contrast">${Math.abs(
 			cycleOffset * 4
-		)} days from now:`
+		)} days</span> from now:`
 	}
 	if (cycleOffset < 0) {
-		text.textContent = `Path to cavecrawler wood ${Math.abs(
+		text.innerHTML = `Path to cavecrawler wood <span class="text-contrast">${Math.abs(
 			cycleOffset * 4
-		)} days ago:`
+		)} days</span> ago:`
 	}
 
 	applyHideVideoSetting(cycle)
