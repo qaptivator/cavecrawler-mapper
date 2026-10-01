@@ -220,7 +220,10 @@
 
 		<!-- Footnote -->
 		<div class="text-sm text-gray-400 my-2">
-			If the map is wrong, click <b>&lt;</b> to see older maps.
+			If the map is wrong, click <b>&lt;</b> to see older maps.<br />
+			<div class="text-xs text-gray-700">
+				Credits to ElectroTechnologies for the video guide.
+			</div>
 		</div>
 
 		<!-- Map Video Display -->
@@ -272,8 +275,7 @@
 
 		<script>
 			const period = 8
-			const unitModifier = 24 * 60 * 60 * 4 // Period of four days
-			// 950x500, 1.8 ratio
+			const unitModifier = 24 * 60 * 60 * 4
 			const IMAGE_CONT_WIDTH = 720
 			const IMAGE_CONT_HEIGHT = 400
 
@@ -312,6 +314,7 @@
 			if (store.rotateState === undefined) store.rotateState = 1
 
 			let cycleOffset = 0
+			let currentCycle = -1
 			const text = $('#path-title')
 			const countdown = $('#path-footer')
 			const image = $('#path-image')
@@ -327,20 +330,15 @@
 				const angle = store.rotateState * 90
 
 				if (isVertical) {
-					// 1. Flip the container to be tall
 					imageContainer.style.width = IMAGE_CONT_HEIGHT + 'px'
 					imageContainer.style.height = IMAGE_CONT_WIDTH + 'px'
 
-					// 2. IMPORTANT: Force the image's base dimensions to flip
-					// so it doesn't clip against the container walls
 					image.style.width = IMAGE_CONT_WIDTH + 'px'
 					image.style.height = IMAGE_CONT_HEIGHT + 'px'
 				} else {
-					// 1. Return container to wide
 					imageContainer.style.width = IMAGE_CONT_WIDTH + 'px'
 					imageContainer.style.height = IMAGE_CONT_HEIGHT + 'px'
 
-					// 2. Return image to wide
 					image.style.width = IMAGE_CONT_WIDTH + 'px'
 					image.style.height = IMAGE_CONT_HEIGHT + 'px'
 				}
@@ -374,14 +372,25 @@
 
 			function getCycle() {
 				let time = getTime()
-				return Math.floor((time % (period * unitModifier)) / unitModifier) // Value 0 through (1 - period)
+				return Math.floor((time % (period * unitModifier)) / unitModifier)
 			}
 
-			function update(cycle) {
+			function updateTimer() {
 				countdown.textContent = `Refreshes in ${secondsToDhms(
 					timeUntilNextCycle()
 				)}`
-				text.textContent = 'Current path to cavecrawler wood:'
+			}
+
+			function updatePath() {
+				const cycle = getCycle()
+				offsetInfo.textContent = cycleOffset
+
+				if (cycle === 5) {
+					text.innerHTML =
+						'The Maze is currently closed.<br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
+				} else {
+					text.textContent = 'Current path to cavecrawler wood:'
+				}
 				if (cycleOffset > 0) {
 					text.textContent = `Path to cavecrawler wood ${Math.abs(
 						cycleOffset * 4
@@ -392,8 +401,10 @@
 						cycleOffset * 4
 					)} days ago:`
 				}
-				// fun fact: youtu.be links cant be embedded in iframes due to sameorigin issues,
-				// you should use www.youtube.com/embed instead
+
+				if (cycle === currentCycle) return
+				currentCycle = cycle
+
 				video.classList.remove('hidden')
 				switch (cycle) {
 					case 0:
@@ -419,8 +430,7 @@
 					case 5:
 						image.src = 'assets/Path5_Blocked.png'
 						video.classList.add('hidden')
-						text.innerHTML =
-							'The Maze is currently closed.<br>You cannot get to cavecrawler wood because all of the doors are blocked.<br>Check again later!'
+
 						break
 					case 6:
 						image.src = 'assets/Path6.png'
@@ -438,9 +448,13 @@
 
 			offsetUp.on('click', () => {
 				cycleOffset += 1
+				updatePath()
+				updateTimer()
 			})
 			offsetDown.on('click', () => {
 				cycleOffset -= 1
+				updatePath()
+				updateTimer()
 			})
 
 			// app start
@@ -452,11 +466,11 @@
 				updateRotateImage()
 			})
 
-			update(getCycle())
-			offsetInfo.textContent = cycleOffset
+			updatePath()
+			updateTimer()
 			setInterval(() => {
-				update(getCycle())
-				offsetInfo.textContent = cycleOffset
+				updateTimer()
+				updatePath()
 			}, 1000)
 		</script>
 	</body>
