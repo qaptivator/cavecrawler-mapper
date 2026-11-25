@@ -141,15 +141,15 @@ function updatePath() {
 	switch (cycle) {
 		case 0:
 			image.src = 'assets/Path0.png'
-			video.src = 'https://www.youtube.com/embed/t8oRKTtcJwk'
+			video.src = 'https://www.youtube.com/embed/fly1fR4HlS4'
 			break
 		case 1:
 			image.src = 'assets/Path1.png'
-			video.src = ' https://www.youtube.com/embed/XEda9jvCZI4'
+			video.src = 'https://www.youtube.com/embed/t8oRKTtcJwk'
 			break
 		case 2:
 			image.src = 'assets/Path2.png'
-			video.src = 'https://www.youtube.com/embed/fly1fR4HlS4'
+			video.src = 'https://www.youtube.com/embed/XEda9jvCZI4'
 			break
 		case 3:
 			image.src = 'assets/Path3.png'
