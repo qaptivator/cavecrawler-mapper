@@ -236,6 +236,88 @@ seasonalThemeCheckbox.on('change', (e) => {
 	applySeasonalThemeSetting()
 })
 
+if (!Array.isArray(store.dismissedNotices)) {
+	store.dismissedNotices = []
+}
+
+const NOTICES = [
+	{
+		id: '6d24c317-1c23-4f3d-8635-a5feaec9f12a',
+		content:
+			'The video guides have been fixed: they point to the correct path now. Sorry for the inconvenience!',
+		expiresAt: '2026-12-15T23:59:59Z',
+	},
+]
+
+function isNoticeExpired(expiresAt) {
+	if (!expiresAt) return false
+	const targetMs =
+		typeof expiresAt === 'number' ? expiresAt : Date.parse(expiresAt)
+	if (Number.isNaN(targetMs)) return false
+	return Date.now() >= targetMs
+}
+
+function getActiveNotices() {
+	const dismissed = new Set(store.dismissedNotices)
+	return NOTICES.filter(
+		(notice) =>
+			notice &&
+			typeof notice.id === 'string' &&
+			!dismissed.has(notice.id) &&
+			!isNoticeExpired(notice.expiresAt)
+	)
+}
+
+function dismissNotice(id) {
+	const dismissed = new Set(store.dismissedNotices)
+	dismissed.add(id)
+	store.dismissedNotices = [...dismissed]
+	renderNextNotice()
+}
+
+function renderNextNotice() {
+	const container = $('#notices-container')
+	if (!container) return
+
+	const [current] = getActiveNotices()
+	if (!current) {
+		container.replaceChildren()
+		return
+	}
+
+	const card = document.createElement('div')
+	card.className =
+		'my-3 flex w-full cursor-pointer select-none items-start justify-between gap-3 rounded-lg border border-amber-400/40 bg-amber-400/15 px-3.5 py-3 text-left text-sm leading-relaxed text-amber-50 transition duration-200 hover:bg-amber-400/20 sm:px-4'
+
+	const message = document.createElement('p')
+	message.className = 'm-0 min-w-0 flex-1'
+	message.innerHTML = current.content
+
+	const closeIcon = document.createElement('span')
+	closeIcon.setAttribute('aria-hidden', 'true')
+	closeIcon.className =
+		'-mr-1 -mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-amber-200/80 transition duration-200'
+	closeIcon.innerHTML = `
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="h-4 w-4"
+		>
+			<path d="M18 6 6 18" />
+			<path d="m6 6 12 12" />
+		</svg>
+	`
+
+	card.on('click', () => dismissNotice(current.id))
+	card.append(message, closeIcon)
+	container.replaceChildren(card)
+}
+
 // App Start Initialization
 const yearEl = $('#current-year')
 if (yearEl) yearEl.innerHTML = new Date().getFullYear()
@@ -252,6 +334,7 @@ rotateImage.on('click', () => {
 applySeasonalThemeSetting()
 updatePath()
 updateTimer()
+renderNextNotice()
 
 setInterval(() => {
 	updateTimer()
