@@ -141,15 +141,15 @@ function updatePath() {
 	switch (cycle) {
 		case 0:
 			image.src = 'assets/Path0.png'
-			video.src = 'https://www.youtube.com/embed/P8m3efuHMho'
+			video.src = 'https://www.youtube.com/embed/t8oRKTtcJwk'
 			break
 		case 1:
 			image.src = 'assets/Path1.png'
-			video.src = 'https://www.youtube.com/embed/l7qKew_Or6M'
+			video.src = ' https://www.youtube.com/embed/XEda9jvCZI4'
 			break
 		case 2:
 			image.src = 'assets/Path2.png'
-			video.src = 'https://www.youtube.com/embed/DuB4s7N9X8w'
+			video.src = 'https://www.youtube.com/embed/fly1fR4HlS4'
 			break
 		case 3:
 			image.src = 'assets/Path3.png'
@@ -157,18 +157,18 @@ function updatePath() {
 			break
 		case 4:
 			image.src = 'assets/Path4.png'
-			video.src = 'https://www.youtube.com/embed/fly1fR4HlS4'
+			video.src = 'https://www.youtube.com/embed/DuB4s7N9X8w'
 			break
 		case 5:
 			image.src = 'assets/Path5_Blocked.png'
 			break
 		case 6:
 			image.src = 'assets/Path6.png'
-			video.src = 'https://www.youtube.com/embed/XEda9jvCZI4'
+			video.src = 'https://www.youtube.com/embed/l7qKew_Or6M'
 			break
 		case 7:
 			image.src = 'assets/Path7.png'
-			video.src = 'https://www.youtube.com/embed/t8oRKTtcJwk'
+			video.src = 'https://www.youtube.com/embed/P8m3efuHMho'
 			break
 		default:
 			alert('Unexpected error occurred, maze cycle not found.')
